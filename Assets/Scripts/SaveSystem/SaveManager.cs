@@ -19,7 +19,6 @@ public class SaveManager : MonoBehaviour
             return;
         }
         DontDestroyOnLoad(gameObject);
-        
         Load();
         GameObject.FindObjectOfType<SceneLoader>().LoadScene(1);
     }
