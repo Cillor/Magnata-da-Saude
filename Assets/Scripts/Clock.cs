@@ -9,7 +9,7 @@ public class Clock : MonoBehaviour{
     public TMP_Text clockText;
 
     private void Start() {
-        date = new DateTime(PlayerData.date[0], PlayerData.date[1], PlayerData.date[2], PlayerData.date[3], PlayerData.date[4], PlayerData.date[5]);
+        date = new DateTime(SaveState.date[0], SaveState.date[1], SaveState.date[2], SaveState.date[3], SaveState.date[4], SaveState.date[5]);
         clockText.text = date.ToString("MM/dd/yyyy HH:mm");
     }
 
