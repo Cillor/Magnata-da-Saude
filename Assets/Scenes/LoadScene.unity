@@ -209,6 +209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d33a8404a4809584a8847bdd0000e633, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resetSave: 1
 --- !u!1 &1968135768
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,11 +15,6 @@ public class Sleep : MonoBehaviour
 
     float amountOfSleepWantedInHours;
 
-
-    //this values should be saved
-    float totalHoursSlept = 8; //changing this will change the game difficulty
-    int numberOfSleeps = 1;
-
     private void Start() {
         clock = GameObject.FindWithTag("clock").GetComponent<Clock>();
         currentHourAndMinuteText.text = clock.date.ToString("HH:mm");
@@ -40,8 +35,8 @@ public class Sleep : MonoBehaviour
         currentHourAndMinuteText.text = clock.date.ToString("HH:mm"); //changes the current time inside the sleep window
         sleepSelectionScreen.SetActive(false);
 
-        totalHoursSlept += amountOfSleepWantedInHours;
-        numberOfSleeps++;
+        SaveManager.Instance.state.totalHoursSlept += amountOfSleepWantedInHours;
+        SaveManager.Instance.state.numberOfSleeps++;
 
         //calculates when the player will wake up the next time the sleep screen opens
         DateTime date = clock.date.AddHours(amountOfSleepWantedInHours); 
