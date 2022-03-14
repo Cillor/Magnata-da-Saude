@@ -36,7 +36,7 @@ public class Exercise : MonoBehaviour{
 
         //TODO energy expenditure based on amount of daily exercises and past week
 
-        Debug.Log("Exercised for " + hoursExercising + " and spent " + calorieExpenditure + "kcal");
+        //?Debug.Log("Exercised for " + hoursExercising + " and spent " + calorieExpenditure + "kcal");
     }
 
     void WeightChange(){
@@ -45,14 +45,14 @@ public class Exercise : MonoBehaviour{
         }
         state.exerciseHistory[6] = state.currentDayExerciseQuantity;
         state.currentDayExerciseQuantity = 0;
-        Debug.Log("Exercise history: " + state.exerciseHistory);
+        //?Debug.Log("Exercise history: " + state.exerciseHistory);
 
         float pastWeekExerciseSum =  state.exerciseHistory.Sum();
 
         state.activityFactor += (2 * Mathf.Cos(0.4f*pastWeekExerciseSum - Mathf.PI/2))/100f;
         state.activityFactor -= (-(1.4f*Mathf.Pow(state.activityFactor-2, 2))+2)/200f;
         state.activityFactor = Mathf.Clamp(state.activityFactor, 1, 2);
-        Debug.Log("Activity Factor: " + state.activityFactor);
+        //?Debug.Log("Activity Factor: " + state.activityFactor);
 
         float c = state.currentWeightKg - 
         ((state.calorieDifference - state.activityFactor * (6.25f * state.heightCentimeters - 5 * state.ageYears + state.sexFactor))/
@@ -62,10 +62,10 @@ public class Exercise : MonoBehaviour{
         (10 * state.activityFactor));
         weightChange -= state.currentWeightKg;
 
-        Debug.Log("Weight Change: " + weightChange);
+        //?Debug.Log("Weight Change: " + weightChange);
 
         state.currentWeightKg += weightChange;// * state.sleepQuality;
-        Debug.Log("New weight: " + state.currentWeightKg);
+        //?Debug.Log("New weight: " + state.currentWeightKg);
 
         state.bmi = state.currentWeightKg / Mathf.Pow(state.heightCentimeters / 100f, 2);
     }
