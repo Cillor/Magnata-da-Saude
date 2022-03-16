@@ -12,7 +12,7 @@ public class SaveState
     public int restingHeartRate = 80;
 
     //changing this will change the game difficulty
-    public float totalHoursSlept = 7, numberOfSleeps = 50, sleepQuality;
+    public float totalHoursSlept = 350, numberOfSleeps = 50, sleepQuality;
     
     public float carbs, fat, protein;
 

@@ -14,9 +14,11 @@ public class Sleep : MonoBehaviour
     Clock clock;
 
     float amountOfSleepWantedInHours;
+    SaveState state;
 
     private void Start() {
         clock = GameObject.FindWithTag("clock").GetComponent<Clock>();
+        state = SaveManager.Instance.state;
         currentHourAndMinuteText.text = clock.date.ToString("HH:mm");
         amountOfHoursToSleepText.text = TimeSpan.FromHours(1).ToString("hh'hrs'mm'min'");
         wakeUpHourAndMinuteText.text = clock.date.AddHours(1).ToString("HH:mm");
@@ -31,12 +33,18 @@ public class Sleep : MonoBehaviour
     }
 
     public void SleepAction(){
-        clock.AddTime(amountOfSleepWantedInHours); //advances time
+        if(clock.AddTime(amountOfSleepWantedInHours) == 0){
+            Debug.Log("Cannot sleep");
+            return;
+        } //advances time
         currentHourAndMinuteText.text = clock.date.ToString("HH:mm"); //changes the current time inside the sleep window
         sleepSelectionScreen.SetActive(false);
 
-        SaveManager.Instance.state.totalHoursSlept += amountOfSleepWantedInHours;
-        SaveManager.Instance.state.numberOfSleeps++;
+        state.totalHoursSlept += amountOfSleepWantedInHours;
+        state.numberOfSleeps++;
+
+        float sleepAverage = state.totalHoursSlept/state.numberOfSleeps;
+        state.sleepQuality = -Mathf.Pow(0.4f * (sleepAverage - 8), 2) + 1;
 
         //calculates when the player will wake up the next time the sleep screen opens
         DateTime date = clock.date.AddHours(amountOfSleepWantedInHours); 

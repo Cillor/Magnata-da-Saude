@@ -12,18 +12,16 @@ public class Food : MonoBehaviour{
     // Start is called before the first frame update
     void Start(){
         foreach (FoodTypeScriptableObject item in foodList){
-            Instantiate(foodTemplate, foodContainer.transform);
-            foodTemplate.GetComponent<FoodConsumption>().foodValues = item;
+            GameObject newFoodType = Instantiate(foodTemplate, foodContainer.transform);
 
-            Debug.Log(item.food + " criado! " + foodTemplate.GetComponent<FoodConsumption>().foodValues);
-
-            TMP_Text food = foodTemplate.transform.Find("Food").GetComponent<TMP_Text>();
-            TMP_Text quantity = foodTemplate.transform.Find("Quantity").GetComponent<TMP_Text>();
-            TMP_Text calorieCost = foodTemplate.transform.Find("calorieCost").GetComponent<TMP_Text>();
-            TMP_Text carb = foodTemplate.transform.Find("carb").GetComponent<TMP_Text>();
-            TMP_Text fat = foodTemplate.transform.Find("fat").GetComponent<TMP_Text>();
-            TMP_Text protein = foodTemplate.transform.Find("protein").GetComponent<TMP_Text>();
-            TMP_Text consumingTime = foodTemplate.transform.Find("consumingTime").GetComponent<TMP_Text>();
+            newFoodType.GetComponent<FoodConsumption>().foodValues = item;
+            TMP_Text food = newFoodType.transform.Find("Food").GetComponent<TMP_Text>();
+            TMP_Text quantity = newFoodType.transform.Find("Quantity").GetComponent<TMP_Text>();
+            TMP_Text calorieCost = newFoodType.transform.Find("calorieCost").GetComponent<TMP_Text>();
+            TMP_Text carb = newFoodType.transform.Find("carb").GetComponent<TMP_Text>();
+            TMP_Text fat = newFoodType.transform.Find("fat").GetComponent<TMP_Text>();
+            TMP_Text protein = newFoodType.transform.Find("protein").GetComponent<TMP_Text>();
+            TMP_Text consumingTime = newFoodType.transform.Find("consumingTime").GetComponent<TMP_Text>();
 
             food.text = item.food;
             quantity.text = item.weight.ToString();
@@ -34,11 +32,5 @@ public class Food : MonoBehaviour{
             consumingTime.text = item.consumingTime.ToString();
 
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

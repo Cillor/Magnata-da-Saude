@@ -22,13 +22,14 @@ public class Exercise : MonoBehaviour{
         System.Random rnd = new System.Random();
 
         float hoursExercising = (float)rnd.NextDouble() * (2.5f - 1.5f) + 1.5f;
-        clock.AddTime(hoursExercising); //advances time
+        if(clock.AddTime(hoursExercising) == 0){
+            Debug.Log("Cannot Exercise");
+            return;
+        } //advances time
 
         state.currentDayExerciseQuantity += 1;
-        int calorieExpenditure = rnd.Next(360,505);
+        int calorieExpenditure = Mathf.RoundToInt(rnd.Next(360,505) * state.sleepQuality);
         state.calorieDifference -= calorieExpenditure;
-
-        //TODO show on screen how many calories were expent
         
         DateTime time = new DateTime();
         time.AddHours(hoursExercising);
@@ -63,8 +64,11 @@ public class Exercise : MonoBehaviour{
         weightChange -= state.currentWeightKg;
 
         //?Debug.Log("Weight Change: " + weightChange);
-
-        state.currentWeightKg += weightChange;// * state.sleepQuality;
+        if(weightChange > 0){
+            state.currentWeightKg += weightChange / state.sleepQuality;
+        }else{
+            state.currentWeightKg += weightChange * state.sleepQuality;
+        }
         //?Debug.Log("New weight: " + state.currentWeightKg);
 
         state.bmi = state.currentWeightKg / Mathf.Pow(state.heightCentimeters / 100f, 2);

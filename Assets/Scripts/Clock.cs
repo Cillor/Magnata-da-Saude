@@ -22,11 +22,16 @@ public class Clock : MonoBehaviour{
         mainClockText.text = date.ToString("MM/dd/yyyy HH:mm");
         bedClockText.text = date.ToString("HH:mm");
         gymClockText.text = date.ToString("HH:mm");
-        Debug.Log(state.ageYears);
+
         OnDayChange();
     }
 
-    public void AddTime(float hours){
+    public int AddTime(float hours){
+        DateTime newDate = date.AddHours(hours);
+        if(13 <= newDate.Hour && newDate.Hour <= 17){
+            Debug.Log("Cannot pass time, I need to go to school");
+            return 0;
+        }
         date = date.AddHours(hours);
         mainClockText.text = date.ToString("MM/dd/yyyy HH:mm");
         bedClockText.text = date.ToString("HH:mm");
@@ -37,5 +42,6 @@ public class Clock : MonoBehaviour{
             if(OnDayChange != null)
                 OnDayChange();
         }
+        return 1;
     }
 }
