@@ -31,7 +31,7 @@ public class Exercise : MonoBehaviour{
         int calorieExpenditure = Mathf.RoundToInt(rnd.Next(360,505) * state.sleepQuality);
         state.calorieDifference -= calorieExpenditure;
         
-        DateTime time = new DateTime();
+        DateTime time = new DateTime(0, 0, 0, 0, 0, 0, 0);
         time.AddHours(hoursExercising);
         exerciseResultsText.text = time.ToString("HH:mm") + "    " + calorieExpenditure + "kcal";
 

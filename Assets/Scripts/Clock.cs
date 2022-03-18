@@ -5,6 +5,7 @@ using UnityEngine;
 using TMPro;
 
 public class Clock : MonoBehaviour{
+    public float clockSpeed = 3f;
     public DateTime date = new DateTime(2022, 1, 1, 0, 0, 0);
 
     public TMP_Text mainClockText, kitchenClockText, bedClockText, gymClockText;
@@ -24,6 +25,16 @@ public class Clock : MonoBehaviour{
         gymClockText.text = date.ToString("HH:mm");
 
         OnDayChange();
+    }
+
+    float timeCounter;
+    private void Update() {
+        timeCounter += Time.deltaTime;
+
+        if(timeCounter > clockSpeed){
+            timeCounter = 0;
+            AddTime(1/60f);
+        }
     }
 
     public int AddTime(float hours){
