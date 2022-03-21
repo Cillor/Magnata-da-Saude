@@ -31,9 +31,10 @@ public class Exercise : MonoBehaviour{
         int calorieExpenditure = Mathf.RoundToInt(rnd.Next(360,505) * state.sleepQuality);
         state.calorieDifference -= calorieExpenditure;
         
-        DateTime time = new DateTime(0, 0, 0, 0, 0, 0, 0);
-        time.AddHours(hoursExercising);
-        exerciseResultsText.text = time.ToString("HH:mm") + "    " + calorieExpenditure + "kcal";
+        int hoursHE = Mathf.FloorToInt(hoursExercising);
+        int minutesHE = Mathf.RoundToInt((hoursExercising - hoursHE) * 60);
+
+        exerciseResultsText.text = hoursHE.ToString("00") + ":" + minutesHE.ToString("00") + "    " + calorieExpenditure + "kcal";
 
         //TODO energy expenditure based on amount of daily exercises and past week
 

@@ -8,7 +8,9 @@ public class Clock : MonoBehaviour{
     public float clockSpeed = 3f;
     public DateTime date = new DateTime(2022, 1, 1, 0, 0, 0);
 
-    public TMP_Text mainClockText, kitchenClockText, bedClockText, gymClockText;
+    public TMP_Text mainClockText, kitchenClockText, bedClockText, gymClockText, computerClockText;
+
+    public static bool timeStopped = false;
 
     private int currentDay;
 
@@ -20,15 +22,16 @@ public class Clock : MonoBehaviour{
     private void Start() {
         date = new DateTime(state.date[0], state.date[1], state.date[2], state.date[3], state.date[4],state.date[5]);
         currentDay = date.Day;
-        mainClockText.text = date.ToString("MM/dd/yyyy HH:mm");
-        bedClockText.text = date.ToString("HH:mm");
-        gymClockText.text = date.ToString("HH:mm");
+        UpdateClocks();
 
         OnDayChange();
     }
 
     float timeCounter;
     private void Update() {
+        if(timeStopped)
+            return;
+
         timeCounter += Time.deltaTime;
 
         if(timeCounter > clockSpeed){
@@ -37,16 +40,22 @@ public class Clock : MonoBehaviour{
         }
     }
 
+    public void UpdateClocks(){
+        mainClockText.text = date.ToString("MM/dd/yyyy HH:mm");
+        bedClockText.text = date.ToString("HH:mm");
+        gymClockText.text = date.ToString("HH:mm");
+        computerClockText.text = date.ToString("HH:mm");
+    }
+
     public int AddTime(float hours){
+
         DateTime newDate = date.AddHours(hours);
-        if(13 <= newDate.Hour && newDate.Hour <= 17){
+        if(date.Hour <= 17 && newDate.Hour >= 13){
             Debug.Log("Cannot pass time, I need to go to school");
             return 0;
         }
         date = date.AddHours(hours);
-        mainClockText.text = date.ToString("MM/dd/yyyy HH:mm");
-        bedClockText.text = date.ToString("HH:mm");
-        gymClockText.text = date.ToString("HH:mm");
+        UpdateClocks();
         
         if(currentDay != date.Day){
             currentDay = date.Day;
