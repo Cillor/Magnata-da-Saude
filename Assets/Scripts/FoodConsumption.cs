@@ -23,5 +23,6 @@ public class FoodConsumption : MonoBehaviour{
         SaveManager.Instance.state.protein += foodValues.protein;
         SaveManager.Instance.state.fat += foodValues.fat;
 
+        //gives or removes player energy based on type of food
     }
 }

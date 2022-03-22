@@ -28,5 +28,7 @@ public class Computer : MonoBehaviour
         int hoursHITC = Mathf.FloorToInt(hoursInTheComputer);
         int minutesHITC = Mathf.RoundToInt((hoursInTheComputer - hoursHITC) * 60);
         timeStudyingResultText.text = hoursHITC.ToString("00") + ":" + minutesHITC.ToString("00");
+
+        //randomly gives or removes player energy
     }
 }

@@ -13,7 +13,6 @@ public class School : MonoBehaviour
         clock = GameObject.FindWithTag("clock").GetComponent<Clock>();
     }
 
-    // Update is called once per frame
     void Update(){
         if(clock.date.Hour == 12 && clock.date.Minute == 59){
             clock.date = clock.date.AddMinutes(1);
@@ -25,8 +24,9 @@ public class School : MonoBehaviour
 
     public void GoToSchool(){
         Clock.timeStopped = false;
-        Debug.Log("AAAAAAAAA");
-        clock.date = clock.date.AddHours(4.01f);
+        clock.date = clock.date.AddHours(5);
         clock.UpdateClocks();
+        
+        //drains player energy
     }
 }
