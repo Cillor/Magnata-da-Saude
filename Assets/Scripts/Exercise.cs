@@ -7,12 +7,14 @@ public class Exercise : MonoBehaviour{
     public TMP_Text exerciseResultsText;
 
     Clock clock;
+    Energy energy;
 
     SaveState state = SaveManager.Instance.state;
 
 
     private void Start() {
         clock = GameObject.FindWithTag("clock").GetComponent<Clock>();
+        energy = GameObject.FindWithTag("energy").GetComponent<Energy>();
 
         Clock.OnDayChange += WeightChange;
         Clock.OnDayChange += Heart;
@@ -20,6 +22,10 @@ public class Exercise : MonoBehaviour{
 
     public void ExerciseAction(){ //only exercises if energy allows it
         System.Random rnd = new System.Random();
+        if(state.energy < UnityEngine.Random.Range(0.4f, 0.6f)){
+            Debug.Log("Too tired to exercise");
+            return;
+        }
 
         float hoursExercising = (float)rnd.NextDouble() * (2.5f - 1.5f) + 1.5f;
         if(clock.AddTime(hoursExercising) == 0){
@@ -36,7 +42,9 @@ public class Exercise : MonoBehaviour{
 
         exerciseResultsText.text = hoursHE.ToString("00") + ":" + minutesHE.ToString("00") + "    " + calorieExpenditure + "kcal";
 
-        //TODO energy expenditure based on amount of daily exercises and past week
+        float energyDecreseValue = UnityEngine.Random.Range(-0.0003f, -0.0007f);
+        energyDecreseValue *= calorieExpenditure;
+        energy.ChangeEnergy(energyDecreseValue);
 
         //?Debug.Log("Exercised for " + hoursExercising + " and spent " + calorieExpenditure + "kcal");
     }

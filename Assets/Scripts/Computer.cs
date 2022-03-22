@@ -8,15 +8,17 @@ public class Computer : MonoBehaviour
     public TMP_Text timeStudyingResultText;
 
     Clock clock;
+    Energy energy;
 
     SaveState state = SaveManager.Instance.state;
 
 
     private void Start() {
         clock = GameObject.FindWithTag("clock").GetComponent<Clock>();
+        energy = GameObject.FindWithTag("energy").GetComponent<Energy>();
     }
 
-    public void StudyAction(){ //only exercises if energy allows it
+    public void StudyAction(){
         System.Random rnd = new System.Random();
 
         float hoursInTheComputer = (float)rnd.NextDouble() * (1.5f - 0.5f) + 0.5f;
@@ -30,5 +32,7 @@ public class Computer : MonoBehaviour
         timeStudyingResultText.text = hoursHITC.ToString("00") + ":" + minutesHITC.ToString("00");
 
         //randomly gives or removes player energy
+        float energyChangeValue = UnityEngine.Random.Range(-0.05f, 0.05f);
+        energy.ChangeEnergy(energyChangeValue);
     }
 }

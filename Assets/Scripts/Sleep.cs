@@ -11,9 +11,11 @@ public class Sleep : MonoBehaviour
     float amountOfSleepWantedInHours;
     SaveState state;
     Clock clock;
+    Energy energy;
 
     private void Start() {
         clock = GameObject.FindWithTag("clock").GetComponent<Clock>();
+        energy = GameObject.FindWithTag("energy").GetComponent<Energy>();
         state = SaveManager.Instance.state;
         amountOfHoursToSleepText.text = TimeSpan.FromHours(1).ToString("hh'hrs'mm'min'");
         wakeUpHourAndMinuteText.text = clock.date.AddHours(1).ToString("HH:mm");
@@ -28,6 +30,8 @@ public class Sleep : MonoBehaviour
     }
 
     public void SleepAction(){
+        int sleepStartHour = clock.date.Hour;
+
         if(clock.AddTime(amountOfSleepWantedInHours) == 0){
             Debug.Log("Cannot sleep");
             return;
@@ -45,5 +49,11 @@ public class Sleep : MonoBehaviour
         wakeUpHourAndMinuteText.text = date.ToString("HH:mm");
 
         //refills player energy based on amount of time slept
+        float sleepQuality = Mathf.Cos(0.27f * (sleepStartHour - 22));
+        float energyIncreaseValue = UnityEngine.Random.Range(0.02f, 0.05f);
+        energyIncreaseValue *= amountOfSleepWantedInHours * sleepQuality;
+        energy.ChangeEnergy(energyIncreaseValue);
     }
+
+    //TODO Hours without sleeping
 }

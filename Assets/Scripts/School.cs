@@ -5,12 +5,14 @@ using UnityEngine;
 public class School : MonoBehaviour
 {
     Clock clock;
+    Energy energy;
     SaveState state = SaveManager.Instance.state;
 
     public GameObject goToSchoolScreen;
 
     private void Start() {
         clock = GameObject.FindWithTag("clock").GetComponent<Clock>();
+        energy = GameObject.FindWithTag("energy").GetComponent<Energy>();
     }
 
     void Update(){
@@ -26,7 +28,9 @@ public class School : MonoBehaviour
         Clock.timeStopped = false;
         clock.date = clock.date.AddHours(5);
         clock.UpdateClocks();
-        
+
+        float energyDecreaseValue = UnityEngine.Random.Range(-0.2f, -0.05f);
+        energy.ChangeEnergy(energyDecreaseValue);
         //drains player energy
     }
 }

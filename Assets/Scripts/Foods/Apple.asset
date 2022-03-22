@@ -19,3 +19,4 @@ MonoBehaviour:
   protein: 0.3
   fat: 0.2
   consumingTime: 3
+  energyExpenditure: -0.001

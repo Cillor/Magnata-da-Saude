@@ -7,13 +7,18 @@ public class FoodConsumption : MonoBehaviour{
     public FoodTypeScriptableObject foodValues;
 
     Clock clock;
+    Energy energy;
 
     private void Start() {
         clock = GameObject.FindWithTag("clock").GetComponent<Clock>();
+        energy = GameObject.FindWithTag("energy").GetComponent<Energy>();
     }
     
     public void ConsumeFood(){
-        Debug.Log(foodValues.consumingTime/60f);
+        if(foodValues.energyExpenditure < 0 && SaveManager.Instance.state.energy < UnityEngine.Random.Range(0.3f, 0.5f)){
+            Debug.Log("No energy to eat this type of food");
+            return;
+        }
         if(clock.AddTime(foodValues.consumingTime/60f) == 0){
             Debug.Log("Cannot eat");
             return;
@@ -22,7 +27,6 @@ public class FoodConsumption : MonoBehaviour{
         SaveManager.Instance.state.carbs += foodValues.carbs;
         SaveManager.Instance.state.protein += foodValues.protein;
         SaveManager.Instance.state.fat += foodValues.fat;
-
-        //gives or removes player energy based on type of food
+        energy.ChangeEnergy(foodValues.energyExpenditure);
     }
 }

@@ -19,3 +19,4 @@ MonoBehaviour:
   protein: 26
   fat: 8
   consumingTime: 10
+  energyExpenditure: 0.01

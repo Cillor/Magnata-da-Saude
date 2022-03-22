@@ -7,5 +7,6 @@ public class FoodTypeScriptableObject : ScriptableObject
     public int weight, calorieCost;
     public float carbs, protein, fat;
     public int consumingTime;
+    public float energyExpenditure;
 
 }
