@@ -64,4 +64,18 @@ public class Clock : MonoBehaviour{
         }
         return 1;
     }
+
+    public void PauseClock(){
+        timeStopped = !timeStopped;
+    }
+
+    public void ChangeClockSpeed(float change){
+        timeStopped = false;
+
+        if(clockSpeed <= 1)
+            change /= 10;
+
+        clockSpeed += change;
+        clockSpeed = Mathf.Clamp(clockSpeed, 0, 5);
+    }
 }
