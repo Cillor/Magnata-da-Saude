@@ -18,5 +18,5 @@ MonoBehaviour:
   carbs: 42
   protein: 26
   fat: 8
-  consumingTime: 10
+  consumingTime: 25
   energyExpenditure: 0.01
