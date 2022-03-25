@@ -12,16 +12,19 @@ public class Clock : MonoBehaviour{
 
     public static bool timeStopped = false;
 
-    private int currentDay;
+    private int currentDay, currentHour;
 
     SaveState state = SaveManager.Instance.state;
 
     public delegate void DayChangeAction();
     public static event DayChangeAction OnDayChange;
     
+    public delegate void HourChangeAction();
+    public static event HourChangeAction OnHourChange;
     private void Start() {
         date = new DateTime(state.date[0], state.date[1], state.date[2], state.date[3], state.date[4],state.date[5]);
         currentDay = date.Day;
+        currentHour = date.Hour;
         UpdateClocks();
 
         OnDayChange();
@@ -37,6 +40,18 @@ public class Clock : MonoBehaviour{
         if(timeCounter > clockSpeed){
             timeCounter = 0;
             AddTime(1/60f);
+        }
+
+        if(currentDay != date.Day){
+            currentDay = date.Day;
+            if(OnDayChange != null)
+                OnDayChange();
+        }
+
+        if(currentHour != date.Hour){
+            currentHour = date.Hour;
+            if(OnHourChange != null)
+                OnHourChange();
         }
     }
 
@@ -55,13 +70,11 @@ public class Clock : MonoBehaviour{
             return 0;
         }
         date = date.AddHours(hours);
+
+        for(int i = 0; i < Mathf.FloorToInt(hours); i++)
+            OnHourChange();
+
         UpdateClocks();
-        
-        if(currentDay != date.Day){
-            currentDay = date.Day;
-            if(OnDayChange != null)
-                OnDayChange();
-        }
         return 1;
     }
 

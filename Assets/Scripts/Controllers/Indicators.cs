@@ -20,6 +20,9 @@ public class Indicators : MonoBehaviour{
         weightText.text = "Peso: " + state.currentWeightKg.ToString("0.00") + "kg";
         bmiText.text = "IMC: " + state.bmi.ToString("0.00");
         restingHeartRateText.text = "FCD: " + state.restingHeartRate;
+        a1cText.text = "GS: " + state.bgp + "mg/dL";
+
+
         caloriesText.text = state.calorieDifference + "kcal";
         float[] pieChartValues = new float[3]{state.protein, state.fat, state.carbs};
         SetValues(pieChartValues);

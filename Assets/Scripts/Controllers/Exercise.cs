@@ -33,10 +33,13 @@ public class Exercise : MonoBehaviour{
             return;
         } //advances time
 
+
         state.currentDayExerciseQuantity += 1;
         int calorieExpenditure = Mathf.RoundToInt(rnd.Next(360,505) * state.sleepQuality);
         state.calorieDifference -= calorieExpenditure;
         
+        state.bgp -= Mathf.Lerp(0, 0.75f * (calorieExpenditure * state.ptc), 1-state.diabetesSeverity);
+
         int hoursHE = Mathf.FloorToInt(hoursExercising);
         int minutesHE = Mathf.RoundToInt((hoursExercising - hoursHE) * 60);
 
@@ -78,6 +81,7 @@ public class Exercise : MonoBehaviour{
         }else{
             state.currentWeightKg += weightChange * state.sleepQuality;
         }
+
         //?Debug.Log("New weight: " + state.currentWeightKg);
 
         state.bmi = state.currentWeightKg / Mathf.Pow(state.heightCentimeters / 100f, 2);
