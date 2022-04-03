@@ -1,7 +1,9 @@
 using System;
 
-public class SaveState
-{
+public class SaveState{
+    public bool characterCreated = false;
+    public int difficulty = 0;
+
     public float energy = 1;
 
     public int ageYears = 16, heightCentimeters = 172, calorieDifference = 0, currentDayExerciseQuantity = 0;
