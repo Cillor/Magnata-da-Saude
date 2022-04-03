@@ -4,6 +4,16 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+public class Message{
+    public string text;
+    public Color color;
+
+    public Message(string _t, Color _c){
+        this.text = _t;
+        this.color = _c;
+    }
+}
+
 public class Indicators : MonoBehaviour{
 
     SaveState state = SaveManager.Instance.state;
@@ -13,8 +23,12 @@ public class Indicators : MonoBehaviour{
     public Image[] imagesPieChart;
     public TMP_Text[] pieChartText;
 
+    [Space]
+    public GameObject popupHolder;
+    public GameObject popupTemplate;
 
-    // Update is called once per frame
+    List<Message> messages = new List<Message>();
+
     void Update()
     {
         weightText.text = "Peso: " + state.currentWeightKg.ToString("0.00") + "kg";
@@ -26,6 +40,11 @@ public class Indicators : MonoBehaviour{
         caloriesText.text = state.calorieDifference + "kcal";
         float[] pieChartValues = new float[3]{state.protein, state.fat, state.carbs};
         SetValues(pieChartValues);
+
+        while(messages.Count > 0){
+            PopUpMessage(messages[0]);
+            messages.RemoveAt(0);
+        }
     }
 
     public void SetValues(float[] valuesToSet){
@@ -43,5 +62,23 @@ public class Indicators : MonoBehaviour{
         totalAmount += valueToSet[i];
         }
         return valueToSet[index] / totalAmount;
+    }
+
+    public void AddMessage(string message, Color color){
+        Message _m = new Message(message, color);
+        messages.Add(_m);
+    }
+
+    void PopUpMessage(Message _m){
+        GameObject _popup = Instantiate(popupTemplate, popupHolder.transform);
+        TMP_Text messagePopup = _popup.GetComponent<TMP_Text>();
+        messagePopup.text = _m.text;
+        messagePopup.color = _m.color;
+        StartCoroutine(HideMessage(messagePopup));
+    }
+
+    IEnumerator HideMessage(TMP_Text messagePopup){
+        yield return new WaitForSeconds(2);
+        GameObject.Destroy(messagePopup.gameObject);
     }
 }

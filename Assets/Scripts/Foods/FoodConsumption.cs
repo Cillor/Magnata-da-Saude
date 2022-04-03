@@ -15,12 +15,8 @@ public class FoodConsumption : MonoBehaviour{
     }
     
     public void ConsumeFood(){
-        if(foodValues.energyExpenditure < 0 && SaveManager.Instance.state.energy < UnityEngine.Random.Range(0.3f, 0.5f)){
-            Debug.Log("No energy to eat this type of food");
-            return;
-        }
         if(clock.AddTime(foodValues.consumingTime/60f) == 0){
-            Debug.Log("Cannot eat");
+            FindObjectOfType<Indicators>().AddMessage("Sem tempo para comer", Color.red);
             return;
         }
         SaveManager.Instance.state.calorieDifference += foodValues.calorieCost;
@@ -31,6 +27,7 @@ public class FoodConsumption : MonoBehaviour{
 
         float kcalCarbs = foodValues.carbs * 4;
         float carbToBloodStream = Mathf.Lerp(0, kcalCarbs, SaveManager.Instance.state.diabetesSeverity);
-        SaveManager.Instance.state.bgp += carbToBloodStream * SaveManager.Instance.state.ptc;
+        float bgpChange = carbToBloodStream * SaveManager.Instance.state.ptc;
+        FindObjectOfType<BloodGlucose>().Change(bgpChange); 
     }
 }

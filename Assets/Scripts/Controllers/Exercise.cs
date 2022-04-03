@@ -1,4 +1,4 @@
-using System;
+using System.Collections;
 using System.Linq;
 using UnityEngine;
 using TMPro;
@@ -23,13 +23,13 @@ public class Exercise : MonoBehaviour{
     public void ExerciseAction(){ //only exercises if energy allows it
         System.Random rnd = new System.Random();
         if(state.energy < UnityEngine.Random.Range(0.4f, 0.6f)){
-            Debug.Log("Too tired to exercise");
+            FindObjectOfType<Indicators>().AddMessage("Muito cansado para se exercitar", Color.red);
             return;
         }
 
-        float hoursExercising = (float)rnd.NextDouble() * (2.5f - 1.5f) + 1.5f;
+        float hoursExercising = UnityEngine.Random.Range(1f, 2.5f);
         if(clock.AddTime(hoursExercising) == 0){
-            Debug.Log("Cannot Exercise");
+            FindObjectOfType<Indicators>().AddMessage("Sem tempo para se exercitar", Color.red);
             return;
         } //advances time
 
@@ -37,17 +37,17 @@ public class Exercise : MonoBehaviour{
         state.currentDayExerciseQuantity += 1;
         int calorieExpenditure = Mathf.RoundToInt(rnd.Next(360,505) * state.sleepQuality);
         state.calorieDifference -= calorieExpenditure;
-        
-        state.bgp -= Mathf.Lerp(0, 0.75f * (calorieExpenditure * state.ptc), 1-state.diabetesSeverity);
-
-        int hoursHE = Mathf.FloorToInt(hoursExercising);
-        int minutesHE = Mathf.RoundToInt((hoursExercising - hoursHE) * 60);
-
-        exerciseResultsText.text = hoursHE.ToString("00") + ":" + minutesHE.ToString("00") + "    " + calorieExpenditure + "kcal";
 
         float energyDecreseValue = UnityEngine.Random.Range(-0.0003f, -0.0007f);
         energyDecreseValue *= calorieExpenditure;
         energy.ChangeEnergy(energyDecreseValue);
+
+        float bgpChange = -1 * Mathf.Lerp(0, 0.75f * (calorieExpenditure * state.ptc), 1-state.diabetesSeverity);
+        FindObjectOfType<BloodGlucose>().Change(bgpChange); 
+
+        int hoursHE = Mathf.FloorToInt(hoursExercising);
+        int minutesHE = Mathf.RoundToInt((hoursExercising - hoursHE) * 60);
+        exerciseResultsText.text = hoursHE.ToString("00") + ":" + minutesHE.ToString("00") + "    " + calorieExpenditure + "kcal";
 
         //?Debug.Log("Exercised for " + hoursExercising + " and spent " + calorieExpenditure + "kcal");
     }
@@ -93,4 +93,5 @@ public class Exercise : MonoBehaviour{
         int goalHeartRate = 131 - 41 * (int)SaveManager.Instance.state.activityFactor;
         SaveManager.Instance.state.restingHeartRate = rnd.Next(goalHeartRate - 2, goalHeartRate + 3);
     }
+
 }

@@ -17,6 +17,12 @@ public class Energy : MonoBehaviour{
         state.energy += change;
         state.energy = Mathf.Clamp(state.energy, 0, 1);
         energySlider.value = state.energy;
+
+        if(change < 0){
+            FindObjectOfType<Indicators>().AddMessage("Energia ↓", Color.red);
+        }else{
+            FindObjectOfType<Indicators>().AddMessage("Energia ↑", Color.green);
+        }
         //change graph
     }
 }

@@ -1,22 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class BloodGlucose : MonoBehaviour{
-    Clock clock;
-    Energy energy;
     SaveState state;
 
     void Start(){
-        clock = GameObject.FindWithTag("clock").GetComponent<Clock>();
-        energy = GameObject.FindWithTag("energy").GetComponent<Energy>();
         state = SaveManager.Instance.state;
 
-        Clock.OnDayChange += Change;
+        Clock.OnDayChange += DailyUpdate;
         Clock.OnHourChange += PassiveBloodGlucoseReduction;
     }
 
-    void Change(){
+    public void Change(float value){
+        state.bgp += value;
+        Debug.Log("BGP Changed");
+        
+        if(value < 0){
+            FindObjectOfType<Indicators>().AddMessage("Glicose ↓", Color.red);
+        }else{
+            FindObjectOfType<Indicators>().AddMessage("Glicose ↑", Color.green);
+        }
+    }
+
+    void DailyUpdate(){
         state.tdi = 0.6f * state.currentWeightKg;
         state.isf = 1500/state.tdi;
         state.icr = 500/state.tdi;
@@ -28,6 +36,7 @@ public class BloodGlucose : MonoBehaviour{
     void PassiveBloodGlucoseReduction(){
         float f = (state.activityFactor/2f) * state.currentWeightKg;
         float bgpReduction = Mathf.Lerp(0, .75f * f * state.ptc, 1-state.diabetesSeverity);
-        state.bgp -= bgpReduction * (state.bgp/200f); //TODO preciso arranjar um jeito de essa redução ser dependente do bgp;
+        float bgpChange = -1 * (bgpReduction * (state.bgp/200f)); //TODO preciso arranjar um jeito de essa redução ser dependente do bgp;
+        Change(bgpChange);     
     }
 }
