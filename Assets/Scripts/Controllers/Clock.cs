@@ -32,6 +32,10 @@ public class Clock : MonoBehaviour{
 
     float timeCounter;
     private void Update() {
+        if(Pause.isPaused)
+            return;
+
+
         if(timeStopped)
             return;
 

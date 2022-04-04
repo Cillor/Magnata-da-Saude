@@ -12,4 +12,8 @@ public class SettingsMenu : MonoBehaviour {
     public void SetQuality (int qualityIndex){
         QualitySettings.SetQualityLevel(qualityIndex);
     }
+
+    public void ResetSave(){
+        SaveManager.Instance.ResetSave();
+    }
 }

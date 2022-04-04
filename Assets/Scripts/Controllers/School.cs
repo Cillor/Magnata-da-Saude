@@ -16,6 +16,9 @@ public class School : MonoBehaviour
     }
 
     void Update(){
+        if(Pause.isPaused)
+            return;
+            
         if(clock.date.Hour == 12 && clock.date.Minute == 59){
             clock.date = clock.date.AddMinutes(1);
             clock.UpdateClocks();
