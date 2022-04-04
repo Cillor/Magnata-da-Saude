@@ -8,7 +8,7 @@ public class Clock : MonoBehaviour{
     public float clockSpeed = 3f;
     public DateTime date = new DateTime(2022, 1, 1, 0, 0, 0);
 
-    public TMP_Text mainClockText, kitchenClockText, bedClockText, gymClockText, computerClockText;
+    public TMP_Text mainClockText, kitchenClockText, bedClockText, gymClockText, computerClockText, clockSpeedText;
 
     public static bool timeStopped = false;
 
@@ -34,7 +34,6 @@ public class Clock : MonoBehaviour{
     private void Update() {
         if(Pause.isPaused)
             return;
-
 
         if(timeStopped)
             return;
@@ -84,15 +83,28 @@ public class Clock : MonoBehaviour{
 
     public void PauseClock(){
         timeStopped = !timeStopped;
+        if(timeStopped)
+            clockSpeedText.text = "||";
+        else{
+            if(1/clockSpeed < 1)
+                clockSpeedText.text = "► " + (1/clockSpeed).ToString("0.00") + "x";
+            else
+                clockSpeedText.text = "► " + (1/clockSpeed).ToString("0") + "x";
+        }
     }
 
     public void ChangeClockSpeed(float change){
         timeStopped = false;
 
-        if(clockSpeed <= 1)
-            change /= 10;
+        /*if(clockSpeed <= 1)
+            change /= 2;*/
 
-        clockSpeed += change;
-        clockSpeed = Mathf.Clamp(clockSpeed, 0, 5);
+        clockSpeed *= change;
+        clockSpeed = Mathf.Clamp(clockSpeed, 0.0625f, 16);
+
+        if(1/clockSpeed < 1)
+            clockSpeedText.text = "► " + (1/clockSpeed).ToString("0.00") + "x";
+        else
+            clockSpeedText.text = "► " + (1/clockSpeed).ToString("0") + "x";
     }
 }
