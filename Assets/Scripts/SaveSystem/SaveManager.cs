@@ -9,6 +9,7 @@ public class SaveManager : MonoBehaviour
     public static SaveManager Instance { set; get; }
     public SaveState state;
     public bool resetSave;
+    public float saveTime = 1;
 
     private void Awake(){
         if(resetSave)
@@ -22,7 +23,15 @@ public class SaveManager : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
         Load();
+        StartCoroutine(ConstantSave());
         GameObject.FindObjectOfType<SceneLoader>().LoadScene(1);
+    }
+
+    IEnumerator ConstantSave(){
+        while(true){
+            yield return new WaitForSeconds(saveTime);
+            Save();
+        }
     }
 
     public void Save()
