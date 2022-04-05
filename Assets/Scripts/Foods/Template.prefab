@@ -810,6 +810,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   foodValues: {fileID: 0}
+  sprite: {fileID: 21300000, guid: bf6efbbb9d160e644ba75af09fde1d9d, type: 3}
 --- !u!1 &7101860742739704208
 GameObject:
   m_ObjectHideFlags: 0

@@ -85,6 +85,10 @@ public class Exercise : MonoBehaviour{
         //?Debug.Log("New weight: " + state.currentWeightKg);
 
         state.bmi = state.currentWeightKg / Mathf.Pow(state.heightCentimeters / 100f, 2);
+
+        state.basalCalorie = Mathf.RoundToInt(state.activityFactor * (10f * state.currentWeightKg + 
+        6.25f * state.heightCentimeters - 5f * state.ageYears + state.sexFactor));
+        state.dailyCalorieRealDefficit = state.calorieDifference - state.basalCalorie;
     }
 
     void Heart(){

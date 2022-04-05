@@ -6,7 +6,8 @@ public class SaveState{
 
     public float energy = 1;
 
-    public int ageYears = 16, heightCentimeters = 172, calorieDifference = 0, currentDayExerciseQuantity = 0;
+    public int ageYears = 16, heightCentimeters = 172, calorieDifference = 0, 
+    currentDayExerciseQuantity = 0, dailyCalorieRealDefficit = 0, basalCalorie = 0;
     
     //sexFactor +5 for men and -161 for women
     public float activityFactor = 1f, sexFactor = 5f; 
@@ -16,7 +17,7 @@ public class SaveState{
     public int restingHeartRate = 80;
 
     //changing this will change the game difficulty
-    public float totalHoursSlept = 350, numberOfSleeps = 50, sleepQuality = 0.84f;
+    public float totalHoursSlept = 350, numberOfSleeps = 50, sleepQuality = 0.84f, hoursSinceLastSlept = 16;
     
     public float carbs, fat, protein;
 

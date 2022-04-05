@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FoodConsumption : MonoBehaviour{
     
     public FoodTypeScriptableObject foodValues;
+
+    public Sprite sprite;
 
     Clock clock;
     Energy energy;
@@ -19,6 +22,9 @@ public class FoodConsumption : MonoBehaviour{
             FindObjectOfType<Indicators>().AddMessage("Sem tempo para comer", Color.red);
             return;
         }
+
+        FindObjectOfType<ImageFade>().ImageFader(sprite);
+
         SaveManager.Instance.state.calorieDifference += foodValues.calorieCost;
         SaveManager.Instance.state.carbs += foodValues.carbs;
         SaveManager.Instance.state.protein += foodValues.protein;
