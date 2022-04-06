@@ -34,28 +34,25 @@ public class SaveManager : MonoBehaviour
         }
     }
 
-    public void Save()
-    {
+    public void Save(){
         PlayerPrefs.SetString("save", SaveUtils.Serialize<SaveState>(state));
     }
 
-    public void Load()
-    {
-        if (PlayerPrefs.HasKey("save"))
-        {
+    public void Load(){
+        if (PlayerPrefs.HasKey("save")){
             state = SaveUtils.Deserialize<SaveState>(PlayerPrefs.GetString("save"));
             Debug.Log("Save file loaded!");
         }
-        else
-        {
+        else{
             state = new SaveState();
             Save();
             Debug.Log("No save file... New one created.");
         }
     }
 
-    public void ResetSave()
-    {
+    public void ResetSave(){
         PlayerPrefs.DeleteKey("save");
+        Debug.Log("Save Reseted");
+        Load();
     }
 }

@@ -74,6 +74,8 @@ public class Clock : MonoBehaviour{
         }
         date = date.AddHours(hours);
 
+        state.date = new int[]{date.Year, date.Month, date.Day, date.Hour, date.Minute, date.Second};
+
         for(int i = 0; i < Mathf.FloorToInt(hours); i++)
             OnHourChange();
 
