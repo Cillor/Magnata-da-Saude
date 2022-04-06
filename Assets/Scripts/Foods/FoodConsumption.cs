@@ -29,7 +29,8 @@ public class FoodConsumption : MonoBehaviour{
         SaveManager.Instance.state.carbs += foodValues.carbs;
         SaveManager.Instance.state.protein += foodValues.protein;
         SaveManager.Instance.state.fat += foodValues.fat;
-        energy.ChangeEnergy(foodValues.energyExpenditure);
+        energy.ChangeEnergy(-1 * foodValues.processingLevel/10f);
+        SaveManager.Instance.state.sleepQuality -= foodValues.processingLevel/10f;
 
         float kcalCarbs = foodValues.carbs * 4;
         float carbToBloodStream = Mathf.Lerp(0, kcalCarbs, SaveManager.Instance.state.diabetesSeverity);

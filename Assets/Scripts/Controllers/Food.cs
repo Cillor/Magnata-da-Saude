@@ -22,13 +22,13 @@ public class Food : MonoBehaviour{
 
             FoodTypeScriptableObject _f = new FoodTypeScriptableObject();
             _f.food = data[0];
-            Debug.Log("Name: " + _f.food);
             _f.weight = data[1];
             _f.calorieCost = int.Parse(data[2]);
             _f.carbs = int.Parse(data[3]);
             _f.fat = int.Parse(data[4]);
             _f.protein = int.Parse(data[5]);
             _f.consumingTime = int.Parse(data[6]);
+            _f.processingLevel = float.Parse(data[7]);
 
             foodL.Add(_f);
         }

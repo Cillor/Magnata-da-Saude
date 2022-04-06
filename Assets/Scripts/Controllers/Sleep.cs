@@ -43,25 +43,27 @@ public class Sleep : MonoBehaviour
     public void SleepAction(){
         int sleepStartHour = clock.date.Hour;
 
+        //checks for avoiding sleep during school time
         if(clock.AddTime(amountOfSleepWantedInHours) == 0){
             Debug.Log("Cannot sleep");
             return;
-        } //advances time
+        }
         sleepSelectionScreen.SetActive(false);
 
-        state.totalHoursSlept += amountOfSleepWantedInHours;
+        state.totalHoursSlept += amountOfSleepWantedInHours; //add hours slept
 
+        //calculates sleep quality
         float sleepAverage = state.totalHoursSlept/state.numberOfSleeps;
-        state.sleepQuality = -Mathf.Pow(0.4f * (sleepAverage - 8), 2) + 1;
+        state.sleepQuality += (-Mathf.Pow(0.5f * (sleepAverage - 8), 2) + 1)/100f;
 
         //calculates when the player will wake up the next time the sleep screen opens
         DateTime date = clock.date.AddHours(amountOfSleepWantedInHours); 
         wakeUpHourAndMinuteText.text = date.ToString("HH:mm");
 
         //refills player energy based on amount of time slept
-        float sleepQuality = Mathf.Cos(0.27f * (sleepStartHour - 22));
+        float thisSleepQuality = Mathf.Cos(0.27f * (sleepStartHour - 22));
         float energyIncreaseValue = UnityEngine.Random.Range(0.02f, 0.05f);
-        energyIncreaseValue *= amountOfSleepWantedInHours * sleepQuality;
+        energyIncreaseValue *= amountOfSleepWantedInHours * thisSleepQuality;
         energy.ChangeEnergy(energyIncreaseValue);
 
         //changes Sleep deficit
@@ -73,6 +75,4 @@ public class Sleep : MonoBehaviour
         if(state.hoursSinceLastSlept > (24*5))
             SceneManager.LoadScene("SleepDeath");
     }
-
-    //TODO Hours without sleeping
 }

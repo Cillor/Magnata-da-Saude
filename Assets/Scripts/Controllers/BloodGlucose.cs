@@ -15,7 +15,6 @@ public class BloodGlucose : MonoBehaviour{
 
     public void Change(float value){
         state.bgp += value;
-        Debug.Log("BGP Changed");
         
         if(value < 0){
             FindObjectOfType<Indicators>().AddMessage("Glicose ↓", Color.red);
