@@ -9,9 +9,33 @@ public class Food : MonoBehaviour{
     public GameObject foodContainer;
     public GameObject foodTemplate;
 
+    List<FoodTypeScriptableObject> foodL = new List<FoodTypeScriptableObject>();
+
     // Start is called before the first frame update
     void Start(){
-        foreach (FoodTypeScriptableObject item in foodList){
+        var dataset = Resources.Load<TextAsset>("FoodDB");
+        var lines = dataset.text.Split('\n');
+        
+        var lists = new List<List<string>>();
+        for(int i = 1; i < lines.Length - 1; i++) {
+            var data = lines[i].Split(';');
+
+            FoodTypeScriptableObject _f = new FoodTypeScriptableObject();
+            _f.food = data[0];
+            Debug.Log("Name: " + _f.food);
+            _f.weight = data[1];
+            _f.calorieCost = int.Parse(data[2]);
+            _f.carbs = int.Parse(data[3]);
+            _f.fat = int.Parse(data[4]);
+            _f.protein = int.Parse(data[5]);
+            _f.consumingTime = int.Parse(data[6]);
+
+            foodL.Add(_f);
+        }
+
+ 
+
+        foreach (FoodTypeScriptableObject item in foodL){
             GameObject newFoodType = Instantiate(foodTemplate, foodContainer.transform);
 
             newFoodType.GetComponent<FoodConsumption>().foodValues = item;
