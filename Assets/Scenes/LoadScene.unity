@@ -210,6 +210,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resetSave: 0
+  saveTime: 1
 --- !u!1 &1968135768
 GameObject:
   m_ObjectHideFlags: 0

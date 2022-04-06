@@ -41,11 +41,6 @@ public class Energy : MonoBehaviour{
         }else{
             FindObjectOfType<Indicators>().AddMessage("Energia ↑", Color.green);
         }
-
-        if(state.energy <= 0){
-            SceneManager.LoadScene("EnergyDeath");
-        }
-
         //change graph
     }
 }

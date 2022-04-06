@@ -71,8 +71,5 @@ public class Sleep : MonoBehaviour
         
         if(state.hoursSinceLastSlept <= 0)
             state.hoursSinceLastSlept = 0;
-        
-        if(state.hoursSinceLastSlept > (24*5))
-            SceneManager.LoadScene("SleepDeath");
     }
 }

@@ -17,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CharacterSelection.unity
     guid: 1286ea31015ccc2498a93391eda0a1ec
+  - enabled: 1
+    path: Assets/Scenes/EndGameStats.unity
+    guid: 72f04b3b9c3593c45a5171208c41c19d
+  - enabled: 1
+    path: Assets/Scenes/SleepDeath.unity
+    guid: c0d1fd8699afcc74eb8110496498a210
   m_configObjects: {}
