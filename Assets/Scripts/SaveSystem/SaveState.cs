@@ -21,6 +21,8 @@ public class SaveState{
     
     public float carbs, fat, protein;
 
+    public float hydration = 0.5f;
+
     public int[] date = new int[6]{2022, 1, 1, 0, 0, 0};
     public int[] exerciseHistory = new int[7]{0, 0, 0, 0, 0, 0, 0};
 

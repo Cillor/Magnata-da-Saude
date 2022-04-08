@@ -24,6 +24,11 @@ public class GameController : MonoBehaviour
 
     // Update is called once per frame
     void Update(){
+        if(state.hydration <= 0){
+            finalMessage  = "SE MANTER HIDRATADO É VITAL PARA SUA SAÚDE";
+            SceneManager.LoadScene("EndGameStats");
+        }
+
         if(state.energy <= 0){
             finalMessage  = "NÃO CUIDAR DA SUA ENERGIA MENTAL É UM CAMINHO PERIGOSO DE SE TRILHAR EM UMA JORNADA COMO A SUA";
             SceneManager.LoadScene("EndGameStats");

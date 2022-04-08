@@ -78,7 +78,7 @@ public class Indicators : MonoBehaviour{
     }
 
     IEnumerator HideMessage(TMP_Text messagePopup){
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(4);
         GameObject.Destroy(messagePopup.gameObject);
     }
 }
