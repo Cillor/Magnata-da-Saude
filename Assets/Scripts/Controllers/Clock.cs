@@ -27,6 +27,11 @@ public class Clock : MonoBehaviour{
         currentHour = date.Hour;
         UpdateClocks();
 
+        if(1/clockSpeed < 1)
+            clockSpeedText.text = "► " + (1/clockSpeed).ToString("0.00") + "x";
+        else
+            clockSpeedText.text = "► " + (1/clockSpeed).ToString("0") + "x";
+
         OnDayChange();
     }
 

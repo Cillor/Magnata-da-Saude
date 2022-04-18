@@ -61,7 +61,8 @@ public class Sleep : MonoBehaviour
         wakeUpHourAndMinuteText.text = date.ToString("HH:mm");
 
         //refills player energy based on when you slept
-        float thisSleepQuality = Mathf.Cos(0.27f * (sleepStartHour - 22));
+        float thisSleepQuality = (Mathf.Cos(0.27f * (sleepStartHour - 22)) + 1)/2f;
+        thisSleepQuality = Mathf.Clamp(thisSleepQuality, 0.1f, 1f);
         float energyIncreaseValue = UnityEngine.Random.Range(0.02f, 0.05f);
         energyIncreaseValue *= amountOfSleepWantedInHours * thisSleepQuality;
         energy.ChangeEnergy(energyIncreaseValue);
