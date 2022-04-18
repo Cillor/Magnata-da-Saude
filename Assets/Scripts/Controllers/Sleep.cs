@@ -72,5 +72,8 @@ public class Sleep : MonoBehaviour
         
         if(state.hoursSinceLastSlept <= 0)
             state.hoursSinceLastSlept = 0;
+
+        StartCoroutine(FindObjectOfType<ImageFade>().FadeImage());
+
     }
 }

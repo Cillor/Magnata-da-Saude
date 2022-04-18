@@ -6,6 +6,7 @@ using TMPro;
 public class Computer : MonoBehaviour
 {
     public TMP_Text timeStudyingResultText;
+    public GameObject resultsGO, studyButton;
 
     Clock clock;
     Energy energy;
@@ -34,5 +35,10 @@ public class Computer : MonoBehaviour
         //randomly gives or removes player energy
         float energyChangeValue = UnityEngine.Random.Range(-0.05f, 0.05f);
         energy.ChangeEnergy(energyChangeValue);
+
+        resultsGO.SetActive(true);
+        studyButton.SetActive(false);
+        StartCoroutine(FindObjectOfType<ImageFade>().FadeImage());
+
     }
 }

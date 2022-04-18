@@ -6,14 +6,12 @@ public class ImageFade : MonoBehaviour {
     public Image img;
 
     public void ImageFader(Sprite sprite){
-        img.gameObject.SetActive(true);
         img.sprite = sprite;
-        // fades the image out when you click
-        StartCoroutine(FadeImage());
     }
     
-    IEnumerator FadeImage()
+    public IEnumerator FadeImage()
     {
+        img.gameObject.SetActive(true);
         img.color = new Color(1, 1, 1, 0);
 
         // loop over 1 second backwards

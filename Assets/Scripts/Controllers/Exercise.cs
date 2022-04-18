@@ -6,6 +6,8 @@ using TMPro;
 public class Exercise : MonoBehaviour{
     public TMP_Text exerciseResultsText;
 
+    public GameObject resultsGO, exerciseButton;
+
     Clock clock;
     Energy energy;
 
@@ -48,6 +50,10 @@ public class Exercise : MonoBehaviour{
         int hoursHE = Mathf.FloorToInt(hoursExercising);
         int minutesHE = Mathf.RoundToInt((hoursExercising - hoursHE) * 60);
         exerciseResultsText.text = hoursHE.ToString("00") + ":" + minutesHE.ToString("00") + "    " + calorieExpenditure + "kcal";
+
+        resultsGO.SetActive(true);
+        exerciseButton.SetActive(false);
+        StartCoroutine(FindObjectOfType<ImageFade>().FadeImage());
 
         //?Debug.Log("Exercised for " + hoursExercising + " and spent " + calorieExpenditure + "kcal");
     }
