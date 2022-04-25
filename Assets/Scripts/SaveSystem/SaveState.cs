@@ -6,8 +6,8 @@ public class SaveState{
 
     public float energy = 1;
 
-    public int ageYears = 16, heightCentimeters = 172, calorieDifference = 0, 
-    currentDayExerciseQuantity = 0, dailyCalorieRealDefficit = 0, basalCalorie = 0;
+    public int ageYears = 16, heightCentimeters = 172, calorieDifference = 1100/*caloriesIn - caloriesOut*/, 
+    currentDayExerciseQuantity = 0, dailyCalorieRealDefficit = 0 /*calorieDifference - basal*/, basalCalorie = 0;
     
     //sexFactor +5 for men and -161 for women
     public float activityFactor = 1f, sexFactor = 5f; 
@@ -19,11 +19,11 @@ public class SaveState{
     //changing this will change the game difficulty
     public float totalHoursSlept = 350, numberOfSleeps = 50, sleepQuality = 0.84f, hoursSinceLastSlept = 16;
     
-    public float carbs, fat, protein;
+    public float carbs = 230, fat = 82, protein = 152;
 
     public float hydration = 0.5f;
 
-    public int[] date = new int[6]{2022, 1, 1, 0, 0, 0};
+    public int[] date = new int[6]{2022, 1, 1, 0, 1, 0};
     public int[] exerciseHistory = new int[7]{0, 0, 0, 0, 0, 0, 0};
 
 

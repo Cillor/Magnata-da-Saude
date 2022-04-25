@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 677918529221931775}
   - component: {fileID: 677918529221931773}
   - component: {fileID: 677918529221931774}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Template PopupText
   m_TagString: Untagged
   m_Icon: {fileID: 0}

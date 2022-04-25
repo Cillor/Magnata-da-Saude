@@ -11,6 +11,10 @@ public class CharacterCreator : MonoBehaviour{
     public TMP_Text activityText, weightText, sleepText;
     public TMP_Text height;
     public TMP_InputField age;
+    
+    [Space]
+    public GameObject manPB; 
+    public GameObject manColor, womanPB, womanColor;
 
     private void Start() {
         state = SaveManager.Instance.state;
@@ -18,6 +22,7 @@ public class CharacterCreator : MonoBehaviour{
             SceneManager.LoadScene(2);
         }
         age.text = state.ageYears + "";
+        GetDifficulty(0);
     }
 
     public void GetHeight(float _h){
@@ -37,9 +42,17 @@ public class CharacterCreator : MonoBehaviour{
 
     public void GetSex(int index){
         if(index == 0){
-            state.sexFactor = -161;
+            state.sexFactor = -161; //female
+            womanColor.SetActive(true);
+            manPB.SetActive(true);
+            womanPB.SetActive(false);
+            manColor.SetActive(false);
         }else{
-            state.sexFactor = 5;
+            state.sexFactor = 5; //male
+            manColor.SetActive(true);
+            womanPB.SetActive(true);
+            manPB.SetActive(false);
+            womanColor.SetActive(false);
         }
     }
 
@@ -54,7 +67,7 @@ public class CharacterCreator : MonoBehaviour{
                 state.sleepQuality = 0.84f;
                 state.bgp = 120;
                 
-                activityText.text = "Condicionamento: baixo";
+                activityText.text = "baixo";
                 break;
             case 1: //normal
                 state.activityFactor = 1.1f;
@@ -63,7 +76,7 @@ public class CharacterCreator : MonoBehaviour{
                 state.totalHoursSlept = state.numberOfSleeps * 6.5f;
                 state.sleepQuality = 0.8f;
                 state.bgp = 150;
-                activityText.text = "Condicionamento: pouco";
+                activityText.text = "pouco";
                 break;
             case 2: //dificil
                 state.activityFactor = 1f;
@@ -72,11 +85,11 @@ public class CharacterCreator : MonoBehaviour{
                 state.totalHoursSlept = state.numberOfSleeps * 6;
                 state.sleepQuality = 0.7f;
                 state.bgp = 180;
-                activityText.text = "Condicionamento: nenhum";
+                activityText.text = "nenhum";
                 break;
         }
-        weightText.text = "Peso: " + state.currentWeightKg.ToString("00.00") + "kg";
-        sleepText.text = "Sono: ~" + state.totalHoursSlept/state.numberOfSleeps + "hrs";
+        weightText.text = state.currentWeightKg.ToString("00.00") + "kg";
+        sleepText.text = "~" + state.totalHoursSlept/state.numberOfSleeps + "hrs";
     }
 
     public void CreateCharacter(){

@@ -32,7 +32,6 @@ public class Clock : MonoBehaviour{
         else
             clockSpeedText.text = "► " + (1/clockSpeed).ToString("0") + "x";
 
-        OnDayChange();
     }
 
     float timeCounter;

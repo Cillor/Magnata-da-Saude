@@ -18,7 +18,9 @@ public class Exercise : MonoBehaviour{
         clock = GameObject.FindWithTag("clock").GetComponent<Clock>();
         energy = GameObject.FindWithTag("energy").GetComponent<Energy>();
 
+        Debug.Log("A");
         Clock.OnDayChange += WeightChange;
+        Debug.Log("C");
         Clock.OnDayChange += Heart;
     }
 
@@ -59,6 +61,7 @@ public class Exercise : MonoBehaviour{
     }
 
     void WeightChange(){
+        Debug.Log("B");
         for(int i = 0; i<6; i++){
             state.exerciseHistory[i] = state.exerciseHistory[i + 1];
         }

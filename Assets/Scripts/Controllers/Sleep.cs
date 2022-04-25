@@ -65,6 +65,7 @@ public class Sleep : MonoBehaviour
         thisSleepQuality = Mathf.Clamp(thisSleepQuality, 0.1f, 1f);
         float energyIncreaseValue = UnityEngine.Random.Range(0.02f, 0.05f);
         energyIncreaseValue *= amountOfSleepWantedInHours * thisSleepQuality;
+        Debug.Log("Sleep");
         energy.ChangeEnergy(energyIncreaseValue);
 
         //changes Sleep deficit
@@ -74,6 +75,11 @@ public class Sleep : MonoBehaviour
             state.hoursSinceLastSlept = 0;
 
         StartCoroutine(FindObjectOfType<ImageFade>().FadeImage());
+
+        state.calorieDifference = 0;
+        state.carbs = 0;
+        state.fat = 0;
+        state.protein = 0;
 
     }
 }

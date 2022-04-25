@@ -15,10 +15,14 @@ public class Pause : MonoBehaviour
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Escape)){
-            isPaused = !isPaused;
+            PauseGame();
         }
 
         pauseScreen.SetActive(isPaused);
+    }
+
+    public void PauseGame(){
+        isPaused = !isPaused;
     }
 
     public void Return(){
