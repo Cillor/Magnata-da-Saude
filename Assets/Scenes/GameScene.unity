@@ -3125,8 +3125,7 @@ MonoBehaviour:
   weightText: {fileID: 796537712}
   bmiText: {fileID: 228638086}
   restingHeartRateText: {fileID: 1085737332}
-  bloodPressureText: {fileID: 0}
-  a1cText: {fileID: 2047156592}
+  glycatedHemoglobinText: {fileID: 2047156592}
   caloriesText: {fileID: 859486119}
   imagesPieChart:
   - {fileID: 862937382}

@@ -18,7 +18,7 @@ public class Indicators : MonoBehaviour{
 
     SaveState state = SaveManager.Instance.state;
 
-    public TMP_Text weightText, bmiText, restingHeartRateText, bloodPressureText, a1cText, caloriesText;
+    public TMP_Text weightText, bmiText, restingHeartRateText, glycatedHemoglobinText, caloriesText;
 
     public Image[] imagesPieChart;
     public TMP_Text[] pieChartText;
@@ -29,12 +29,11 @@ public class Indicators : MonoBehaviour{
 
     List<Message> messages = new List<Message>();
 
-    void Update()
-    {
+    void Update(){
         weightText.text = "Peso: " + state.currentWeightKg.ToString("0.00") + "kg";
         bmiText.text = "IMC: " + state.bmi.ToString("0.00");
         restingHeartRateText.text = "FCD: " + state.restingHeartRate;
-        a1cText.text = "GS: " + state.bgp + "mg/dL";
+        glycatedHemoglobinText.text = "GS: " + state.bgp + "mg/dL";
 
 
         caloriesText.text = state.calorieDifference + "kcal";

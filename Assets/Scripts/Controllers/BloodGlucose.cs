@@ -9,6 +9,8 @@ public class BloodGlucose : MonoBehaviour{
     void Start(){
         state = SaveManager.Instance.state;
 
+        DailyUpdate();
+
         Clock.OnDayChange += DailyUpdate;
         Clock.OnHourChange += PassiveBloodGlucoseReduction;
     }
