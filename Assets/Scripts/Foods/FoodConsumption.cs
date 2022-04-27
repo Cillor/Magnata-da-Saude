@@ -24,6 +24,7 @@ public class FoodConsumption : MonoBehaviour{
         }
 
         FindObjectOfType<ImageFade>().ImageFader(sprite);
+        StartCoroutine(FindObjectOfType<ImageFade>().FadeImage());
 
         SaveManager.Instance.state.calorieDifference += foodValues.calorieCost;
         SaveManager.Instance.state.carbs += foodValues.carbs;
