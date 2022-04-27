@@ -87,6 +87,15 @@ public class CharacterCreator : MonoBehaviour{
                 state.bgp = 180;
                 activityText.text = "nenhum";
                 break;
+            default:
+                state.activityFactor = 1f;
+                state.currentWeightKg = 37 * Mathf.Pow(state.heightCentimeters/100f, 2);
+                state.numberOfSleeps = 100;
+                state.totalHoursSlept = state.numberOfSleeps * 6;
+                state.sleepQuality = 0.7f;
+                state.bgp = 180;
+                activityText.text = "nenhum";
+                break;
         }
         weightText.text = state.currentWeightKg.ToString("00.00") + "kg";
         sleepText.text = "~" + state.totalHoursSlept/state.numberOfSleeps + "hrs";

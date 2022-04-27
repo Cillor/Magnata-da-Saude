@@ -2658,8 +2658,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1944587528}
-        m_TargetAssemblyTypeName: SettingsMenu, Assembly-CSharp
+      - m_Target: {fileID: 1822386173}
+        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
         m_MethodName: ResetSave
         m_Mode: 1
         m_Arguments:
