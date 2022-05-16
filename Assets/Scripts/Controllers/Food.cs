@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Globalization;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -28,7 +29,7 @@ public class Food : MonoBehaviour{
             _f.fat = int.Parse(data[4]);
             _f.protein = int.Parse(data[5]);
             _f.consumingTime = int.Parse(data[6]);
-            _f.processingLevel = float.Parse(data[7]);
+            _f.processingLevel = float.Parse(data[7], CultureInfo.InvariantCulture);
 
             foodL.Add(_f);
         }
