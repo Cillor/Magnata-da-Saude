@@ -452,7 +452,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -200, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &995561291
 MonoBehaviour:
@@ -477,8 +477,8 @@ MonoBehaviour:
   m_text: "N\xC3O CUIDAR DA SUA ENERGIA MENTAL \xC9 UM CAMINHO PERIGOSO DE SE TRILHAR
     EM UMA JORNADA COMO A SUA."
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e7387aa43e0d21c4d8f52216b4be4e42, type: 2}
-  m_sharedMaterial: {fileID: 4657191389814496659, guid: e7387aa43e0d21c4d8f52216b4be4e42, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1a718196fd9dd5f40b2266292e2176e8, type: 2}
+  m_sharedMaterial: {fileID: -1602356886474176214, guid: 1a718196fd9dd5f40b2266292e2176e8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -768,8 +768,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Menu
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 910536ca3a4774d4c94d3a11cbd474fb, type: 2}
-  m_sharedMaterial: {fileID: 4555076882382298910, guid: 910536ca3a4774d4c94d3a11cbd474fb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1a718196fd9dd5f40b2266292e2176e8, type: 2}
+  m_sharedMaterial: {fileID: -1602356886474176214, guid: 1a718196fd9dd5f40b2266292e2176e8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
