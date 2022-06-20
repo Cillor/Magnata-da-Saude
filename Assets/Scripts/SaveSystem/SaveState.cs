@@ -1,6 +1,7 @@
 using System;
 
 public class SaveState{
+    public bool tutorialCompleted = false;
     public bool characterCreated = false;
     public int difficulty = 0;
 
