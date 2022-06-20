@@ -34,6 +34,7 @@ public class School : MonoBehaviour
 
         float energyDecreaseValue = UnityEngine.Random.Range(-0.2f, -0.05f);
         energy.ChangeEnergy(energyDecreaseValue);
+        goToSchoolScreen.SetActive(false);
         //drains player energy
     }
 }
