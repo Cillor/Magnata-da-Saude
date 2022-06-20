@@ -20,6 +20,7 @@ public class CharacterCreator : MonoBehaviour{
         state = SaveManager.Instance.state;
         if(state.characterCreated){
             SceneManager.LoadScene(2);
+            return;
         }
         age.text = state.ageYears + "";
         GetDifficulty(0);
