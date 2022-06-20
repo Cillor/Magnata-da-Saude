@@ -9,6 +9,7 @@ public class SettingsMenu : MonoBehaviour {
     public AudioMixer audioMixer;
     public TMP_Dropdown resolutionDropdown;
     public Slider volumeSlider;
+    public Toggle fullScreenToggle;
     float currentVolume;
 
     Resolution[] resolutions;
@@ -42,6 +43,7 @@ public class SettingsMenu : MonoBehaviour {
             Screen.fullScreen = Convert.ToBoolean(PlayerPrefs.GetInt("FullscreenPreference"));
         else
             Screen.fullScreen = true;
+        fullScreenToggle.isOn = Screen.fullScreen;
 
         if (PlayerPrefs.HasKey("VolumePreference"))
             volumeSlider.value = PlayerPrefs.GetFloat("VolumePreference");
