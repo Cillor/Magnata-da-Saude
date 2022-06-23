@@ -20,21 +20,21 @@ public class Energy : MonoBehaviour{
     }
 
     public void ChangeEnergy(float change){
-        Debug.Log("Energy expent: " + change);
+        //Debug.Log("Energy expent: " + change);
         float energyDelta;
         if(change >= 0){
             energyDelta = change * (68f - state.hoursSinceLastSlept)/52f;
-            Debug.Log("Calorie deficit mod: " + state.dailyCalorieRealDefficit);
+            //Debug.Log("Calorie deficit mod: " + state.dailyCalorieRealDefficit);
             energyDelta *= (2100f + state.dailyCalorieRealDefficit)/2100f;
         }else{
             energyDelta = change * (88f + state.hoursSinceLastSlept)/104f;
-            Debug.Log("Calorie deficit mod: " + state.dailyCalorieRealDefficit);
+            //Debug.Log("Calorie deficit mod: " + state.dailyCalorieRealDefficit);
             energyDelta *= (2100f - state.dailyCalorieRealDefficit)/2100f;
         }
 
 
         state.energy += energyDelta;
-        Debug.Log("EnergyDelta: "+ energyDelta);
+        //Debug.Log("EnergyDelta: "+ energyDelta);
         state.energy = Mathf.Clamp(state.energy, 0, 1);
         energySlider.value = state.energy;
 

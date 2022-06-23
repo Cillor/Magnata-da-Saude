@@ -18,9 +18,7 @@ public class Exercise : MonoBehaviour{
         clock = GameObject.FindWithTag("clock").GetComponent<Clock>();
         energy = GameObject.FindWithTag("energy").GetComponent<Energy>();
 
-        Debug.Log("A");
         Clock.OnDayChange += WeightChange;
-        Debug.Log("C");
         Clock.OnDayChange += Heart;
     }
 

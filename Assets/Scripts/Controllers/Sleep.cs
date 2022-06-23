@@ -65,7 +65,6 @@ public class Sleep : MonoBehaviour
         thisSleepQuality = Mathf.Clamp(thisSleepQuality, 0.1f, 1f);
         float energyIncreaseValue = UnityEngine.Random.Range(0.02f, 0.05f);
         energyIncreaseValue *= amountOfSleepWantedInHours * thisSleepQuality;
-        Debug.Log("Sleep");
         energy.ChangeEnergy(energyIncreaseValue);
 
         //changes Sleep deficit
