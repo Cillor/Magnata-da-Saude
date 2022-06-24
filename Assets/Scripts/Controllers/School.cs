@@ -9,6 +9,7 @@ public class School : MonoBehaviour
     SaveState state = SaveManager.Instance.state;
 
     public GameObject goToSchoolScreen;
+    public GameObject[] screens;
 
     private void Start() {
         clock = GameObject.FindWithTag("clock").GetComponent<Clock>();
@@ -23,6 +24,7 @@ public class School : MonoBehaviour
             clock.date = clock.date.AddMinutes(1);
             clock.UpdateClocks();
             Clock.timeStopped = true;
+
             goToSchoolScreen.SetActive(true);
         }
     }
@@ -34,7 +36,10 @@ public class School : MonoBehaviour
 
         float energyDecreaseValue = UnityEngine.Random.Range(-0.2f, -0.05f);
         energy.ChangeEnergy(energyDecreaseValue);
-        goToSchoolScreen.SetActive(false);
+        foreach(GameObject go in screens){
+            go.SetActive(false);
+        }
+
         //drains player energy
     }
 }

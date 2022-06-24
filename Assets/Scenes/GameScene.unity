@@ -230,6 +230,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1046743421}
+        m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+        m_MethodName: DisplayNextSentence
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &16728548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1476,6 +1488,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1046743421}
+        m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+        m_MethodName: DisplayNextSentence
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &149418775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1857,7 +1881,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &204314677
 GameObject:
@@ -2231,7 +2255,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &231563537
 MonoBehaviour:
@@ -2261,7 +2285,7 @@ GameObject:
   - component: {fileID: 234737593}
   - component: {fileID: 234737592}
   m_Layer: 5
-  m_Name: Button
+  m_Name: WaterButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2339,6 +2363,18 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0.03
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1046743421}
+        m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+        m_MethodName: DisplayNextSentence
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -2592,7 +2628,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &293531294
 GameObject:
@@ -4213,7 +4249,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &520574486
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4868,7 +4904,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1623df84c12698d4dbfc3e46cfea5129, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clockSpeed: 1
+  clockSpeed: 4
   mainClockText: {fileID: 441416476}
   kitchenClockText: {fileID: 0}
   bedClockText: {fileID: 1743064811}
@@ -4887,7 +4923,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &566857328
 GameObject:
@@ -5131,7 +5167,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 16728545}
+      - m_Target: {fileID: 2008905636}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -5141,7 +5177,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 2008905636}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
@@ -5417,12 +5453,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
-    eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
-    in culpa qui officia deserunt mollit anim id est laborum.
+  m_text: "Abra a geladeira e tome um caf\xE9 da manh\xE3 refor\xE7ado para aguentar
+    o dia.\nLembre-se que sua escolha de alimentos \xE9 extremamente importante,
+    quando sua glicose est\xE1 alta \xE9 importante escolher alimentos que n\xE3o
+    afetar\xE3o sua glicose glicemica muito bruscamente."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1a718196fd9dd5f40b2266292e2176e8, type: 2}
   m_sharedMaterial: {fileID: -1602356886474176214, guid: 1a718196fd9dd5f40b2266292e2176e8, type: 2}
@@ -5784,6 +5818,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1046743421}
+        m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+        m_MethodName: DisplayNextSentence
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -6173,6 +6219,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1046743421}
+        m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+        m_MethodName: DisplayNextSentence
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &704482758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6309,7 +6367,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &787821399
 MonoBehaviour:
@@ -6324,6 +6382,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goToSchoolScreen: {fileID: 925535721}
+  screens:
+  - {fileID: 99920915}
+  - {fileID: 474789081}
+  - {fileID: 410555851}
+  - {fileID: 1787664552}
+  - {fileID: 925535721}
 --- !u!1 &793111267
 GameObject:
   m_ObjectHideFlags: 0
@@ -7232,7 +7296,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &917073974
 MonoBehaviour:
@@ -7738,6 +7802,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 21300000, guid: eb13b720da7911e449c0a97f551e1e58, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1046743421}
+        m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+        m_MethodName: DisplayNextSentence
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -8437,6 +8513,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueText: {fileID: 603078231}
   dialogueGO: {fileID: 2130866445}
+  interactables:
+  - {fileID: 54065774}
+  - {fileID: 569652362}
+  - {fileID: 640890981}
+  - {fileID: 2007173972}
+  - {fileID: 234737592}
 --- !u!4 &1046743422
 Transform:
   m_ObjectHideFlags: 0
@@ -8449,7 +8531,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1063084474
 GameObject:
@@ -9444,7 +9526,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1312690907
 GameObject:
@@ -10306,7 +10388,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1418312675
 MonoBehaviour:
@@ -10321,29 +10403,56 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    sentences:
-    - 'Primeiro vc dorme por umas 8 horas
-
-      Use a cama'
-    - "Depois toma um caf\xE9 da manh\xE3\nUse a geladeira"
-    - 'Agora estude um pouco.
-
-      Use o computador'
-    - 'Almoce antes das 13 horas.
-
-      Use a geladeira'
-    - "V\xE1 para a escola\nClique no bot\xE3o vermelho"
-    - 'Jante alguma coisa.
-
-      Use a geladeira'
-    - 'Se exercite um pouco.
-
-      Use a academia'
-    - "Fa\xE7a a ceia.\nUse a geladeira"
-    - 'Dorme por mais umas 8 horas.
-
-      Use a cama'
-    - Repita
+  - sentence: "Clique na cama para dormir e ter 8 horas de descanso.\nO sono \xE9
+      um fator muito importante na sua sa\xFAde, ele influ\xEAncia em tudo, seu peso,
+      sua frequ\xEAncia card\xEDaca de descanso, sua glicose, a sua recupera\xE7\xE3o
+      de energia e at\xE9 sua hidrata\xE7\xE3o."
+    interactable: {fileID: 54065774}
+    timeSet:
+      _dateTime: 01/01/2022 08:00:00
+  - sentence: "Abra a geladeira e tome um caf\xE9 da manh\xE3 refor\xE7ado para aguentar
+      o dia.\nLembre-se que sua escolha de alimentos \xE9 extremamente importante,
+      quando sua glicose est\xE1 alta \xE9 importante escolher alimentos que n\xE3o
+      afetar\xE3o sua glicose glicemica muito bruscamente."
+    interactable: {fileID: 640890981}
+    timeSet:
+      _dateTime: 01/01/2022 09:00:00
+  - sentence: Estude no seu computador para melhorar suas notas e passar o tempo
+    interactable: {fileID: 569652362}
+    timeSet:
+      _dateTime: 01/01/2022 11:00:00
+  - sentence: "Outro fator importante para sua sa\xFAde \xE9 se manter hidratado.
+      Beba \xE1gua regularmente."
+    interactable: {fileID: 234737592}
+    timeSet:
+      _dateTime: 01/01/2022 11:00:00
+  - sentence: "Abra a geladeira e escolha seu almo\xE7o."
+    interactable: {fileID: 640890981}
+    timeSet:
+      _dateTime: 01/01/2022 12:30:00
+  - sentence: "V\xE1 para a escola assim que o rel\xF3gio der 13hrs."
+    interactable: {fileID: 704482757}
+    timeSet:
+      _dateTime: 01/01/2022 18:00:00
+  - sentence: "Voltando da escola \xE9 um bom hor\xE1rio para se jantar. Abra a geladeira
+      e coma um pouco.\nE se lembre o qu\xE3o importante \xE9 manter sua dieta balanceada
+      com uma escolha de alimentos sa\xFAdaveis."
+    interactable: {fileID: 640890981}
+    timeSet:
+      _dateTime: 01/01/2022 19:00:00
+  - sentence: "Esse \xE9 um hor\xE1rio excelente para se exercitar na academia e
+      aliviar um pouco do estresse do dia.\nO exerc\xEDcio \xE9 um fator essencial
+      para manter sua sa\xFAde em dia, algu\xE9m que se exercita tem mais energia,
+      dorme melhor, tem uma frequ\xEAncia card\xEDaca mais est\xE1vel e tem mais
+      controle sobre sua glicose."
+    interactable: {fileID: 2007173972}
+    timeSet:
+      _dateTime: 01/01/2022 21:30:00
+  - sentence: "Ap\xF3s um dia t\xE3o longo \xE9 sempre bom dormir e recuperar as
+      energias para um pr\xF3ximo dia."
+    interactable: {fileID: 54065774}
+    timeSet:
+      _dateTime: 02/01/2022 07:00:00
 --- !u!1 &1439176073
 GameObject:
   m_ObjectHideFlags: 0
@@ -11031,8 +11140,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 175}
-  m_SizeDelta: {x: 0, y: 350}
+  m_AnchoredPosition: {x: 0, y: 127.76999}
+  m_SizeDelta: {x: 0, y: 255.55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1721852246
 MonoBehaviour:
@@ -11101,7 +11210,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1725231626
 MonoBehaviour:
@@ -11160,7 +11269,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1743064809
 GameObject:
@@ -11908,7 +12017,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1852776583
 MonoBehaviour:
@@ -12362,7 +12471,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1417888324}
+      - m_Target: {fileID: 131728215}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -12372,7 +12481,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 131728215}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine

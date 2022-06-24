@@ -30,11 +30,13 @@ public class Exercise : MonoBehaviour{
         }
 
         float hoursExercising = UnityEngine.Random.Range(1f, 2.5f);
-        if(clock.AddTime(hoursExercising) == 0){
-            FindObjectOfType<Indicators>().AddMessage("Sem tempo para se exercitar", Color.red);
-            return;
-        } //advances time
 
+        if(SaveManager.Instance.state.tutorialCompleted){
+            if(clock.AddTime(hoursExercising) == 0){
+                FindObjectOfType<Indicators>().AddMessage("Sem tempo para se exercitar", Color.red);
+                return;
+            } //advances time
+        }
 
         state.currentDayExerciseQuantity += 1;
         int calorieExpenditure = Mathf.RoundToInt(rnd.Next(360,505) * state.sleepQuality);
@@ -59,7 +61,6 @@ public class Exercise : MonoBehaviour{
     }
 
     void WeightChange(){
-        Debug.Log("B");
         for(int i = 0; i<6; i++){
             state.exerciseHistory[i] = state.exerciseHistory[i + 1];
         }

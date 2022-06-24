@@ -43,10 +43,12 @@ public class Sleep : MonoBehaviour
     public void SleepAction(){
         int sleepStartHour = clock.date.Hour;
 
-        //checks for avoiding sleep during school time
-        if(clock.AddTime(amountOfSleepWantedInHours) == 0){
-            Debug.Log("Cannot sleep");
-            return;
+        if(SaveManager.Instance.state.tutorialCompleted){
+            //checks for avoiding sleep during school time
+            if(clock.AddTime(amountOfSleepWantedInHours) == 0){
+                Debug.Log("Cannot sleep");
+                return;
+            }
         }
         sleepSelectionScreen.SetActive(false);
 

@@ -70,7 +70,6 @@ public class Clock : MonoBehaviour{
     }
 
     public int AddTime(float hours){
-
         DateTime newDate = date.AddHours(hours);
         if(date.Hour <= 17 && newDate.Hour >= 13){
             Debug.Log("Cannot pass time, I need to go to school");

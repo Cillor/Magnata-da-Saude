@@ -5284,6 +5284,7 @@ MonoBehaviour:
   audioMixer: {fileID: 24100000, guid: 203f54fd392bd1d43b712ba3f0bbf688, type: 2}
   resolutionDropdown: {fileID: 507035835}
   volumeSlider: {fileID: 1950601786}
+  fullScreenToggle: {fileID: 1551049056}
 --- !u!1 &1950601784
 GameObject:
   m_ObjectHideFlags: 0

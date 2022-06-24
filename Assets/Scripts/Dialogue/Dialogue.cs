@@ -1,8 +1,11 @@
+using System; 
 using UnityEngine;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class Dialogue {
-	[TextArea(3, 10)]
-	public string[] sentences;
-
+	[TextArea(5, 10)]
+	public string sentence;
+    public Button interactable;
+	public UDateTime timeSet;
 }

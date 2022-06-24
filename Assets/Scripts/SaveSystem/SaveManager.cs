@@ -30,7 +30,8 @@ public class SaveManager : MonoBehaviour
     IEnumerator ConstantSave(){
         while(true){
             yield return new WaitForSeconds(saveTime);
-            Save();
+            if(state.tutorialCompleted)
+                Save();
         }
     }
 

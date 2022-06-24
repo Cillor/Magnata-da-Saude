@@ -6,26 +6,21 @@ public class Pause : MonoBehaviour
 {
     public static bool isPaused;
     public GameObject pauseScreen;
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Escape)){
-            PauseGame();
+            isPaused = !isPaused;
+            pauseScreen.SetActive(isPaused);
         }
 
-        pauseScreen.SetActive(isPaused);
     }
 
     public void PauseGame(){
-        isPaused = !isPaused;
+        isPaused = true;
     }
-
-    public void Return(){
+    public void UnPauseGame(){
         isPaused = false;
     }
 }
