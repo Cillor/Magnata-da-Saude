@@ -8,13 +8,11 @@ public class Pause : MonoBehaviour
     public GameObject pauseScreen;
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update(){
         if(Input.GetKeyDown(KeyCode.Escape)){
             isPaused = !isPaused;
-            pauseScreen.SetActive(isPaused);
         }
-
+        pauseScreen.SetActive(isPaused);
     }
 
     public void PauseGame(){
