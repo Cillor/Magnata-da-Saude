@@ -5,10 +5,14 @@ using UnityEngine;
 using TMPro;
 
 public class Clock : MonoBehaviour{
-    public float clockSpeed = 3f;
+    int clockIndex = 1;
+    float[] speeds = {0.25f, 0.5f, 1f, 2f, 4f, 8f, 16f};
+    public float clockSpeed;
+
+
     public DateTime date = new DateTime(2022, 1, 1, 0, 0, 0);
 
-    public TMP_Text mainClockText, kitchenClockText, bedClockText, gymClockText, computerClockText, clockSpeedText;
+    public TMP_Text mainClockText, bedClockText, gymClockText, computerClockText, clockSpeedText;
 
     public static bool timeStopped = false;
 
@@ -27,11 +31,7 @@ public class Clock : MonoBehaviour{
         currentHour = date.Hour;
         UpdateClocks();
 
-        if(1/clockSpeed < 1)
-            clockSpeedText.text = "► " + (1/clockSpeed).ToString("0.00") + "x";
-        else
-            clockSpeedText.text = "► " + (1/clockSpeed).ToString("0") + "x";
-
+        ChangeClockSpeed();
     }
 
     float timeCounter;
@@ -44,7 +44,7 @@ public class Clock : MonoBehaviour{
 
         timeCounter += Time.deltaTime;
 
-        if(timeCounter > clockSpeed){
+        if(timeCounter > 1/clockSpeed){
             timeCounter = 0;
             AddTime(1/60f);
         }
@@ -54,7 +54,6 @@ public class Clock : MonoBehaviour{
             if(OnDayChange != null)
                 OnDayChange();
         }
-
         if(currentHour != date.Hour){
             currentHour = date.Hour;
             if(OnHourChange != null)
@@ -90,26 +89,23 @@ public class Clock : MonoBehaviour{
         timeStopped = !timeStopped;
         if(timeStopped)
             clockSpeedText.text = "||";
-        else{
-            if(1/clockSpeed < 1)
-                clockSpeedText.text = "► " + (1/clockSpeed).ToString("0.00") + "x";
-            else
-                clockSpeedText.text = "► " + (1/clockSpeed).ToString("0") + "x";
-        }
+        else
+            Display();
     }
 
-    public void ChangeClockSpeed(float change){
+    public void ChangeClockSpeed(){
         timeStopped = false;
+        clockIndex++;
+        clockIndex %= speeds.Length;
+        clockSpeed = speeds[clockIndex];
 
-        /*if(clockSpeed <= 1)
-            change /= 2;*/
+        Display();
+    }
 
-        clockSpeed *= change;
-        clockSpeed = Mathf.Clamp(clockSpeed, 0.0625f, 16);
-
-        if(1/clockSpeed < 1)
-            clockSpeedText.text = "► " + (1/clockSpeed).ToString("0.00") + "x";
+    void Display(){
+        if(clockSpeed <= 1)
+            clockSpeedText.text = "► " + (clockSpeed).ToString("0.00") + "x";
         else
-            clockSpeedText.text = "► " + (1/clockSpeed).ToString("0") + "x";
+            clockSpeedText.text = "►► " + (clockSpeed).ToString("0") + "x";
     }
 }
