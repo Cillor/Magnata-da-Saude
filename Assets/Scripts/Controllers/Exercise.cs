@@ -26,6 +26,7 @@ public class Exercise : MonoBehaviour{
         System.Random rnd = new System.Random();
         if(state.energy < UnityEngine.Random.Range(0.4f, 0.6f)){
             FindObjectOfType<Indicators>().AddMessage("Muito cansado para se exercitar", Color.red);
+            FindObjectOfType<Indicators>().AddMessage("Durma ou se alimente para recuperar energia", Color.yellow);
             return;
         }
 
