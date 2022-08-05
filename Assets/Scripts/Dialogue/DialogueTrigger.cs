@@ -8,6 +8,10 @@ public class DialogueTrigger : MonoBehaviour {
 	public Dialogue[] dialogue;
 
 	private void Start() {
+		if(PlayerPrefs.GetInt("playTutorial") == 0){
+			SaveManager.Instance.state.tutorialCompleted = true;
+		}
+
 		if(!SaveManager.Instance.state.tutorialCompleted){
 			TriggerDialogue();
         }

@@ -13,8 +13,4 @@ public class SceneLoader : MonoBehaviour
         Debug.Log("Closing application");
         Application.Quit();
     }
-
-    public void ResetSave(){
-        SaveManager.Instance.ResetSave();
-    }
 }
