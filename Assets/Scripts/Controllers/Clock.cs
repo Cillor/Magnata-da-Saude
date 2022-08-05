@@ -62,7 +62,7 @@ public class Clock : MonoBehaviour{
     }
 
     public void UpdateClocks(){
-        mainClockText.text = date.ToString("MM/dd/yyyy HH:mm");
+        mainClockText.text = date.ToString("dd/MM/yyyy HH:mm");
         bedClockText.text = date.ToString("HH:mm");
         gymClockText.text = date.ToString("HH:mm");
         computerClockText.text = date.ToString("HH:mm");
