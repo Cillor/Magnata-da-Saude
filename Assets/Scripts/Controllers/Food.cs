@@ -2,6 +2,7 @@ using System.Collections;
 using System.Globalization;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class Food : MonoBehaviour{
@@ -23,13 +24,20 @@ public class Food : MonoBehaviour{
 
             FoodTypeScriptableObject _f = new FoodTypeScriptableObject();
             _f.food = data[0];
-            _f.weight = data[1];
-            _f.calorieCost = int.Parse(data[2]);
-            _f.carbs = int.Parse(data[3]);
-            _f.fat = int.Parse(data[4]);
-            _f.protein = int.Parse(data[5]);
-            _f.consumingTime = int.Parse(data[6]);
-            _f.processingLevel = float.Parse(data[7], CultureInfo.InvariantCulture);
+            _f.weight = int.Parse(data[1]);
+            _f.measure = data[2];
+            int cals = int.Parse(data[3]);
+            int carbs = int.Parse(data[4]);
+            int fats = int.Parse(data[5]);
+            int proteins = int.Parse(data[6]);
+
+            _f.calorieCost = (100 * cals)/_f.weight;
+            _f.carbs = (100 * carbs)/_f.weight;
+            _f.fat = (100 * fats)/_f.weight;
+            _f.protein = (100 * proteins)/_f.weight;
+
+            _f.consumingTime = int.Parse(data[7]);
+            _f.processingLevel = float.Parse(data[8], CultureInfo.InvariantCulture);
 
             foodL.Add(_f);
         }
@@ -41,21 +49,32 @@ public class Food : MonoBehaviour{
 
             newFoodType.GetComponent<FoodConsumption>().foodValues = item;
             TMP_Text food = newFoodType.transform.Find("Food").GetComponent<TMP_Text>();
-            TMP_Text quantity = newFoodType.transform.Find("Quantity").GetComponent<TMP_Text>();
+            Image[] chart = newFoodType.transform.Find("macros").GetComponentsInChildren<Image>();
+            System.Array.Reverse(chart);
+            Image wholeness = newFoodType.transform.Find("Wholeness").GetComponent<Image>();
             TMP_Text calorieCost = newFoodType.transform.Find("calorieCost").GetComponent<TMP_Text>();
-            TMP_Text carb = newFoodType.transform.Find("carb").GetComponent<TMP_Text>();
-            TMP_Text fat = newFoodType.transform.Find("fat").GetComponent<TMP_Text>();
-            TMP_Text protein = newFoodType.transform.Find("protein").GetComponent<TMP_Text>();
-            TMP_Text consumingTime = newFoodType.transform.Find("consumingTime").GetComponent<TMP_Text>();
+            float[] macros = new float[3]{item.protein, item.fat, item.carbs};
 
             food.text = item.food;
-            quantity.text = item.weight.ToString();
+            SetValues(macros, chart);
+            wholeness.fillAmount = item.processingLevel;
             calorieCost.text = item.calorieCost.ToString();
-            carb.text = item.carbs.ToString();
-            fat.text = item.fat.ToString();
-            protein.text = item.protein.ToString();
-            consumingTime.text = item.consumingTime.ToString();
-
         }
+    }
+
+    public void SetValues(float[] valuesToSet, Image[] imagesChart){
+        float totalValues = 0;
+        for(int i = 0; i < imagesChart.Length; i++){
+        totalValues += FindPercentage(valuesToSet, i);
+        imagesChart[i].fillAmount = totalValues;
+        }
+    }
+
+    private float FindPercentage(float[] valueToSet, int index){
+        float totalAmount = 0;
+        for(int i = 0; i< valueToSet.Length; i++){
+        totalAmount += valueToSet[i];
+        }
+        return valueToSet[index] / totalAmount;
     }
 }
