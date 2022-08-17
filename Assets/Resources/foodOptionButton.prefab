@@ -617,9 +617,9 @@ GameObject:
   - component: {fileID: 7777701779012384509}
   - component: {fileID: 7777701779012384510}
   - component: {fileID: 7777701779012384511}
-  - component: {fileID: 2553775467638996514}
+  - component: {fileID: 2363430625602756655}
   m_Layer: 5
-  m_Name: food option
+  m_Name: foodOptionButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -718,9 +718,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2553775467638996514}
-        m_TargetAssemblyTypeName: FoodConsumption, Assembly-CSharp
-        m_MethodName: ConsumeFood
+      - m_Target: {fileID: 2363430625602756655}
+        m_TargetAssemblyTypeName: Foods.UI.FoodSelectionButton, Assembly-CSharp
+        m_MethodName: SelectFood
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -730,7 +730,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &2553775467638996514
+--- !u!114 &2363430625602756655
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -739,8 +739,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7777701779012384508}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e64676f03d42e50419036cfc0e22727e, type: 3}
+  m_Script: {fileID: 11500000, guid: 8bd6504aeea0d4943921181cd3aab921, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   foodValues: {fileID: 0}
-  sprite: {fileID: 21300000, guid: bf6efbbb9d160e644ba75af09fde1d9d, type: 3}
