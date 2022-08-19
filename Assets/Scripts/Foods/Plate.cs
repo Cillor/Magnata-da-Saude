@@ -8,7 +8,6 @@ namespace Foods{
         public void EatPlate(){
             int calories = 0;
             float carbs = 0, protein = 0, fat = 0, processingAverage = 0;
-            GetComponent<Foods.UI.Plate>().RemoveFood();
 
             foreach(FoodTypeScriptableObject item in foodPlate){
                 calories += item.calorieCost;
@@ -17,13 +16,15 @@ namespace Foods{
                 fat += item.fat;
                 processingAverage += item.processingLevel;
             }
+            //Debug.Log(calories);
             processingAverage /= foodPlate.Count;
+            GetComponent<Foods.UI.Plate>().RemoveFood();
 
             SaveManager.Instance.state.calorieDifference += calories;
             SaveManager.Instance.state.carbs += carbs;
             SaveManager.Instance.state.protein += protein;
             SaveManager.Instance.state.fat += fat;
-            //Debug.Log("Food eaten");
+            GetComponent<Foods.UI.General>().UpdateNutritionalInfo();
 
             FindObjectOfType<Energy>().ChangeEnergy(-1 * processingAverage/10f);
             SaveManager.Instance.state.sleepQuality -= processingAverage/10f;

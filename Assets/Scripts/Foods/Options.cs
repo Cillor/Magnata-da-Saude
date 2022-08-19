@@ -47,7 +47,7 @@ namespace Foods{
         }
 
         void CreateTable(List<FoodTypeScriptableObject> foodL){
-            Foods.UI.General generalUI = new Foods.UI.General();
+            Foods.UI.General generalUI = GetComponent<Foods.UI.General>();
             foreach (FoodTypeScriptableObject item in foodL){
                 generalUI.DisplayFoodInOptions(item, "foodOptionButton", foodTable.transform);
             }
