@@ -3,7 +3,17 @@ using UnityEngine;
 
 namespace Foods{
     public class Plate : MonoBehaviour{
-        public List<FoodTypeScriptableObject> foodPlate;
+        private List<FoodTypeScriptableObject> foodPlate;
+        public List<FoodTypeScriptableObject> FoodPlate{
+            get {return foodPlate;}
+        }
+
+        public void AddToPlate(FoodTypeScriptableObject food){
+            foodPlate.Add(food);
+        }
+        public void RemoveFromPlate(FoodTypeScriptableObject food){
+            foodPlate.Remove(food);
+        }
 
         public void EatPlate(){
             int calories = 0;
@@ -24,7 +34,7 @@ namespace Foods{
             SaveManager.Instance.state.carbs += carbs;
             SaveManager.Instance.state.protein += protein;
             SaveManager.Instance.state.fat += fat;
-            GetComponent<Foods.UI.General>().UpdateNutritionalInfo();
+            GetComponent<Foods.UI.Fridge>().DailyNutritionalInfo();
 
             FindObjectOfType<Energy>().ChangeEnergy(-1 * processingAverage/10f);
             SaveManager.Instance.state.sleepQuality -= processingAverage/10f;

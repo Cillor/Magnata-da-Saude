@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace Foods{
-        public class Options : MonoBehaviour{
-        public List<FoodTypeScriptableObject> foodOptionsList;
-        public GameObject foodTable;
+        public class Fridge : MonoBehaviour{
+        
+        [SerializeField]
+        private GameObject foodTable;
+        private List<FoodTypeScriptableObject> foodOptionsList;
 
         private void Start() {
             foodOptionsList = LoadFoodDatabase(Resources.Load<TextAsset>("FoodDB"));
@@ -47,9 +49,9 @@ namespace Foods{
         }
 
         void CreateTable(List<FoodTypeScriptableObject> foodL){
-            Foods.UI.General generalUI = GetComponent<Foods.UI.General>();
+            Foods.UI.Fridge fridgeUI = GetComponent<Foods.UI.Fridge>();
             foreach (FoodTypeScriptableObject item in foodL){
-                generalUI.DisplayFoodInOptions(item, "foodOptionButton", foodTable.transform);
+                fridgeUI.DisplayFoodInOptions(item, "foodOptionButton", foodTable.transform);
             }
         }
     }
