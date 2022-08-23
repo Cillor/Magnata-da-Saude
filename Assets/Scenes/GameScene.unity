@@ -1015,7 +1015,6 @@ GameObject:
   m_Component:
   - component: {fileID: 79557169}
   - component: {fileID: 79557171}
-  - component: {fileID: 79557170}
   m_Layer: 5
   m_Name: ObjectsContainer
   m_TagString: Untagged
@@ -1040,22 +1039,8 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: -285.68472}
-  m_SizeDelta: {x: -0.000030518, y: 0}
+  m_SizeDelta: {x: -0.000030518, y: 840}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &79557170
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 79557168}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_HorizontalFit: 0
-  m_VerticalFit: 2
 --- !u!114 &79557171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1073,7 +1058,7 @@ MonoBehaviour:
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
-  m_ChildAlignment: 1
+  m_ChildAlignment: 4
   m_Spacing: 0
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
@@ -3785,6 +3770,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 440088138}
+  - component: {fileID: 440088142}
+  - component: {fileID: 440088141}
   - component: {fileID: 440088140}
   - component: {fileID: 440088139}
   m_Layer: 5
@@ -3857,6 +3844,44 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!222 &440088141
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 440088137}
+  m_CullTransparentMesh: 1
+--- !u!114 &440088142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 440088137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.651455, g: 0.735849, b: 0.37764326, a: 0.039215688}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -6344343437890535301, guid: 8e624bed33f7bf7449e67566aa135b05, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &441416474
 GameObject:
   m_ObjectHideFlags: 0
@@ -4465,8 +4490,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Clock, Assembly-CSharp
+      - m_Target: {fileID: 555231849}
+        m_TargetAssemblyTypeName: Timer.Clock, Assembly-CSharp
         m_MethodName: ChangeClockSpeed
         m_Mode: 1
         m_Arguments:
@@ -5974,9 +5999,9 @@ MonoBehaviour:
   m_fontSize: 45
   m_fontSizeBase: 45
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMax: 45
   m_fontStyle: 0
   m_HorizontalAlignment: 8
   m_VerticalAlignment: 256
@@ -8860,8 +8885,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Clock, Assembly-CSharp
+      - m_Target: {fileID: 555231849}
+        m_TargetAssemblyTypeName: Timer.Clock, Assembly-CSharp
         m_MethodName: PauseClock
         m_Mode: 1
         m_Arguments:
@@ -11328,11 +11353,12 @@ MonoBehaviour:
   - sentence: "Abra a geladeira, monte seu prato e tome um caf\xE9 da manh\xE3 refor\xE7ado
       para aguentar o dia.\nLembre-se que sua escolha de alimentos \xE9 extremamente
       importante, quando sua glicose est\xE1 alta \xE9 importante escolher alimentos
-      que n\xE3o afetar\xE3o sua glicose glicemica muito bruscamente."
+      que n\xE3o afetar\xE3o sua glicose glicemica muito bruscamente.\nOu seja, obte
+      por comer alimentos com menos carboidratos."
     interactable: {fileID: 640890981}
     timeSet:
       _dateTime: 01/01/2022 09:00:00
-  - sentence: Estude no seu computador para melhorar suas notas e passar o tempo
+  - sentence: Estude no seu computador para melhorar suas notas e passar seu o tempo.
     interactable: {fileID: 569652362}
     timeSet:
       _dateTime: 01/01/2022 11:00:00
@@ -11341,17 +11367,25 @@ MonoBehaviour:
     interactable: {fileID: 234737592}
     timeSet:
       _dateTime: 01/01/2022 11:00:00
-  - sentence: "Abra a geladeira e escolha seu almo\xE7o."
+  - sentence: "Abra a geladeira e escolha seu almo\xE7o.\nExplore suas op\xE7\xF5es
+      de alimentos e busque montar uma refei\xE7\xE3o que balanceia bem sua quantidade
+      de macronutrientes (carboidratos, prote\xEDnas e gorduras). Lembrando sempre
+      que saladas s\xE3o extremamente importantes na dieta de uma pessoa."
     interactable: {fileID: 640890981}
     timeSet:
       _dateTime: 01/01/2022 12:30:00
-  - sentence: "V\xE1 para a escola assim que o rel\xF3gio der 13hrs."
+  - sentence: "V\xE1 para a escola assim que o rel\xF3gio der 13:00.\nUsando os controles
+      de tempo no canto superior direito voc\xEA pode alterar a velocidade de passagem
+      do tempo, al\xE9m de parar o fluxo temporal totalmente.\nVoc\xEA \xE9 for\xE7ado
+      a ir para a escola todos os dias entre as 13:00 e as 18:00, dessa forma qualquer
+      a\xE7\xE3o que for ser finalizada depois das 13:00 n\xE3o poder\xE1 ocorrer."
     interactable: {fileID: 704482757}
     timeSet:
       _dateTime: 01/01/2022 18:00:00
   - sentence: "Voltando da escola \xE9 um bom hor\xE1rio para se jantar. Abra a geladeira,
-      monte seu prato e coma um pouco.\nE se lembre o qu\xE3o importante \xE9 manter
-      sua dieta balanceada com uma escolha de alimentos sa\xFAdaveis."
+      monte seu prato e coma.\nE se lembre o qu\xE3o importante \xE9 n\xE3o exceder
+      um limite calorico di\xE1rio, consumir mais calorias do que seu corpo gasta
+      leva a ganho de gordura."
     interactable: {fileID: 640890981}
     timeSet:
       _dateTime: 01/01/2022 19:00:00
