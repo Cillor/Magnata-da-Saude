@@ -1,13 +1,12 @@
 using System;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using TMPro;
 
-public class Sleep : MonoBehaviour
-{
+public class Sleep : MonoBehaviour{
     public GameObject sleepSelectionScreen;
     public TMP_Text amountOfHoursToSleepText, wakeUpHourAndMinuteText;
+    [SerializeField] private Slider sleepSelectorSlider;
 
     float amountOfSleepWantedInHours;
     SaveState state;
@@ -81,6 +80,9 @@ public class Sleep : MonoBehaviour
         state.carbs = 0;
         state.fat = 0;
         state.protein = 0;
+        FindObjectOfType<Foods.UI.Fridge>().DailyNutritionalInfo();
 
+        ChangeAmountOfSleep(1);
+        sleepSelectorSlider.value = 1;
     }
 }
