@@ -49,7 +49,6 @@ public class DialogueManager : MonoBehaviour {
 			return;
         }
 
-		clock.AddTime(hoursToAdd);
 
 		foreach(Button button in interactables){
 			button.interactable = false;
@@ -59,9 +58,9 @@ public class DialogueManager : MonoBehaviour {
 		string sentence = dialog.sentence;
 		dialog.interactable.interactable = true;
 
+		clock.SetHours(hoursToAdd);
 		DateTime dialogTime = dialog.timeSet.dateTime;
-		hoursToAdd = dialogTime.Hour - clock.Date.Hour;
-		hoursToAdd += (dialogTime.Minute/60f) - (clock.Date.Minute/60f);
+		hoursToAdd = dialogTime.Hour + (dialogTime.Minute/60f);
 		//Debug.Log(dialogTime.Hour + " - " + clock.Date.Hour + " = " + hoursToAdd);
 
 		StopAllCoroutines();
