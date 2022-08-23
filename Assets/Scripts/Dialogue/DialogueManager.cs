@@ -31,9 +31,10 @@ public class DialogueManager : MonoBehaviour {
 
 	float hoursToAdd = 0;
 	public void DisplayNextSentence (){
+		Timer.Clock clock = FindObjectOfType<Timer.Clock>();
+
 		if (dialogs.Count == 1){
             SaveManager.Instance.state.tutorialCompleted = true;
-			FindObjectOfType<Clock>().clockSpeed = 1;
 
 			foreach(Button button in interactables){
 				button.interactable = true;
@@ -48,7 +49,7 @@ public class DialogueManager : MonoBehaviour {
 			return;
         }
 
-		FindObjectOfType<Clock>().AddTime(hoursToAdd);
+		clock.AddTime(hoursToAdd);
 
 		foreach(Button button in interactables){
 			button.interactable = false;
@@ -59,9 +60,9 @@ public class DialogueManager : MonoBehaviour {
 		dialog.interactable.interactable = true;
 
 		DateTime dialogTime = dialog.timeSet.dateTime;
-		hoursToAdd = dialogTime.Hour - FindObjectOfType<Clock>().date.Hour;
-		hoursToAdd += (dialogTime.Minute/60f) - (FindObjectOfType<Clock>().date.Minute/60f);
-		Debug.Log(dialogTime.Hour + " - " + FindObjectOfType<Clock>().date.Hour + " = " + hoursToAdd);
+		hoursToAdd = dialogTime.Hour - clock.Date.Hour;
+		hoursToAdd += (dialogTime.Minute/60f) - (clock.Date.Minute/60f);
+		Debug.Log(dialogTime.Hour + " - " + clock.Date.Hour + " = " + hoursToAdd);
 
 		StopAllCoroutines();
 		StartCoroutine(TypeSentence(sentence));

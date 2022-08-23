@@ -11,8 +11,8 @@ public class BloodGlucose : MonoBehaviour{
 
         DailyUpdate();
 
-        Clock.OnDayChange += DailyUpdate;
-        Clock.OnHourChange += PassiveBloodGlucoseReduction;
+        Timer.Clock.OnDayChange += DailyUpdate;
+        Timer.Clock.OnHourChange += PassiveBloodGlucoseReduction;
     }
 
     public void Change(float value){
@@ -23,6 +23,13 @@ public class BloodGlucose : MonoBehaviour{
         }else{
             FindObjectOfType<Indicators>().AddMessage("Glicose ↑", Color.green);
         }
+    }
+
+    public void AddCarbsToBloodStream(float carbs){
+        float kcalCarbs = carbs * 4;
+        float carbToBloodStream = Mathf.Lerp(0, kcalCarbs, SaveManager.Instance.state.diabetesSeverity);
+        float bgpChange = carbToBloodStream * SaveManager.Instance.state.ptc;
+       Change(bgpChange); 
     }
 
     void DailyUpdate(){

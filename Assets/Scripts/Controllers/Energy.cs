@@ -12,7 +12,7 @@ public class Energy : MonoBehaviour{
         state = SaveManager.Instance.state;
         energySlider.value = state.energy;
 
-        Clock.OnHourChange += ExistenceEnergyExpenditure;
+        Timer.Clock.OnHourChange += ExistenceEnergyExpenditure;
     }
 
     void ExistenceEnergyExpenditure(){

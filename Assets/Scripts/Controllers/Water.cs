@@ -10,7 +10,7 @@ public class Water : MonoBehaviour{
         state = SaveManager.Instance.state;
         waterIndicator.value = state.hydration;
 
-        Clock.OnHourChange += Dehydrate;
+        Timer.Clock.OnHourChange += Dehydrate;
     }
 
     public void Hydrate(float value){

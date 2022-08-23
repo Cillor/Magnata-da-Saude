@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class Clock : MonoBehaviour{
+public class Clok : MonoBehaviour{
     int clockIndex = 1;
     float[] speeds = {0.25f, 0.5f, 1f, 2f, 4f, 8f, 16f};
     public float clockSpeed;

@@ -8,15 +8,13 @@ public class Computer : MonoBehaviour
     public TMP_Text timeStudyingResultText;
     public GameObject resultsGO, studyButton;
 
-    Clock clock;
     Energy energy;
 
     SaveState state = SaveManager.Instance.state;
 
 
     private void Start() {
-        clock = GameObject.FindWithTag("clock").GetComponent<Clock>();
-        energy = GameObject.FindWithTag("energy").GetComponent<Energy>();
+        energy = FindObjectOfType<Energy>();
     }
 
     public void StudyAction(){
@@ -25,7 +23,7 @@ public class Computer : MonoBehaviour
         float hoursInTheComputer = (float)rnd.NextDouble() * (1.5f - 0.5f) + 0.5f;
 
         if(SaveManager.Instance.state.tutorialCompleted){
-            if(clock.AddTime(hoursInTheComputer) == 0){
+            if(FindObjectOfType<Timer.Clock>().AddTime(hoursInTheComputer) == 0){
                 Debug.Log("Cannot Study");
                 return;
             } //advances time

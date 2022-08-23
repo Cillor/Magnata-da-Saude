@@ -11,17 +11,17 @@ public class Sleep : MonoBehaviour
 
     float amountOfSleepWantedInHours;
     SaveState state;
-    Clock clock;
+    Timer.Clock clock;
     Energy energy;
 
     private void Start() {
-        clock = GameObject.FindWithTag("clock").GetComponent<Clock>();
+        clock = GameObject.FindWithTag("clock").GetComponent<Timer.Clock>();
         energy = GameObject.FindWithTag("energy").GetComponent<Energy>();
         state = SaveManager.Instance.state;
         amountOfHoursToSleepText.text = TimeSpan.FromHours(1).ToString("hh'hrs'mm'min'");
-        wakeUpHourAndMinuteText.text = clock.date.AddHours(1).ToString("HH:mm");
-        Clock.OnDayChange += NewDay;
-        Clock.OnHourChange += HourlyUpdate;
+        wakeUpHourAndMinuteText.text = clock.Date.AddHours(1).ToString("HH:mm");
+        Timer.Clock.OnDayChange += NewDay;
+        Timer.Clock.OnHourChange += HourlyUpdate;
     }
 
     void NewDay(){
@@ -36,12 +36,12 @@ public class Sleep : MonoBehaviour
         amountOfSleepWantedInHours = value;
         TimeSpan time = TimeSpan.FromHours(amountOfSleepWantedInHours);
         amountOfHoursToSleepText.text = time.ToString("hh'hrs'mm'min'");
-        DateTime date = clock.date.AddHours(amountOfSleepWantedInHours);
+        DateTime date = clock.Date.AddHours(amountOfSleepWantedInHours);
         wakeUpHourAndMinuteText.text = date.ToString("HH:mm");
     }
 
     public void SleepAction(){
-        int sleepStartHour = clock.date.Hour;
+        int sleepStartHour = clock.Date.Hour;
 
         if(SaveManager.Instance.state.tutorialCompleted){
             //checks for avoiding sleep during school time
@@ -59,7 +59,7 @@ public class Sleep : MonoBehaviour
         state.sleepQuality += (-Mathf.Pow(0.5f * (sleepAverage - 8), 2) + 1)/100f;
 
         //calculates when the player will wake up the next time the sleep screen opens
-        DateTime date = clock.date.AddHours(amountOfSleepWantedInHours); 
+        DateTime date = clock.Date.AddHours(amountOfSleepWantedInHours); 
         wakeUpHourAndMinuteText.text = date.ToString("HH:mm");
 
         //refills player energy based on when you slept

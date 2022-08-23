@@ -39,13 +39,7 @@ namespace Foods{
             FindObjectOfType<Energy>().ChangeEnergy(-1 * processingAverage/10f);
             SaveManager.Instance.state.sleepQuality -= processingAverage/10f;
 
-            float kcalCarbs = carbs * 4;
-            //Debug.Log("kcalCarbs: " + kcalCarbs);
-            float carbToBloodStream = Mathf.Lerp(0, kcalCarbs, SaveManager.Instance.state.diabetesSeverity);
-            //Debug.Log("CarbsToBS: " + carbToBloodStream);
-            float bgpChange = carbToBloodStream * SaveManager.Instance.state.ptc;
-            //Debug.Log("BGPChange: " + bgpChange);
-            FindObjectOfType<BloodGlucose>().Change(bgpChange); 
+            FindObjectOfType<BloodGlucose>().AddCarbsToBloodStream(4); 
         }
     }
 }

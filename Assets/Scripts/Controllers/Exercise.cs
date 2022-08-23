@@ -8,18 +8,16 @@ public class Exercise : MonoBehaviour{
 
     public GameObject resultsGO, exerciseButton;
 
-    Clock clock;
     Energy energy;
 
     SaveState state = SaveManager.Instance.state;
 
 
     private void Start() {
-        clock = GameObject.FindWithTag("clock").GetComponent<Clock>();
-        energy = GameObject.FindWithTag("energy").GetComponent<Energy>();
+        energy = FindObjectOfType<Energy>();
 
-        Clock.OnDayChange += WeightChange;
-        Clock.OnDayChange += Heart;
+        Timer.Clock.OnDayChange += WeightChange;
+        Timer.Clock.OnDayChange += Heart;
     }
 
     public void ExerciseAction(){ //only exercises if energy allows it
@@ -33,7 +31,7 @@ public class Exercise : MonoBehaviour{
         float hoursExercising = UnityEngine.Random.Range(1f, 2.5f);
 
         if(SaveManager.Instance.state.tutorialCompleted){
-            if(clock.AddTime(hoursExercising) == 0){
+            if(FindObjectOfType<Timer.Clock>().AddTime(hoursExercising) == 0){
                 FindObjectOfType<Indicators>().AddMessage("Sem tempo para se exercitar", Color.red);
                 return;
             } //advances time
