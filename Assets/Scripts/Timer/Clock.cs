@@ -12,6 +12,7 @@ namespace Timer{
                 return date;
             } set{
                 date = value;
+                state.date = new int[]{date.Year, date.Month, date.Day, date.Hour, date.Minute, date.Second};
             }
         }
 
@@ -59,15 +60,21 @@ namespace Timer{
                 Debug.Log("Cannot pass time, I need to go to school");
                 return 0;
             }
-            date = date.AddHours(hours);
-
-            state.date = new int[]{date.Year, date.Month, date.Day, date.Hour, date.Minute, date.Second};
+            Date = date.AddHours(hours);
 
             for(int i = 0; i < Mathf.FloorToInt(hours); i++)
                 OnHourChange();
 
             GetComponent<Timer.UI.Clock>().UpdateGameClocks();
             return 1;
+        }
+
+        public void SetHours(float hours){
+            int hour = Mathf.FloorToInt(hours);
+            int minute = Mathf.FloorToInt((hours-hour)*60);
+            DateTime newDate = new DateTime(date.Year, date.Month, date.Day, hour, minute, 0);
+            Date = newDate;
+            GetComponent<Timer.UI.Clock>().UpdateGameClocks();
         }
 
         public void PauseClock(){
