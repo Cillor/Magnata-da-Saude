@@ -4,7 +4,12 @@ namespace Foods.UI{
     public class FoodSelectionButton : MonoBehaviour{
         private FoodTypeScriptableObject foodValues;
         public FoodTypeScriptableObject FoodValues {
-            get; set;
+            get{
+                return foodValues;
+            } 
+            set{
+                foodValues = value;
+            }
         }
 
         public void SelectFood(){

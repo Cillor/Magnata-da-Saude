@@ -34,7 +34,6 @@ namespace Foods.UI{
             DisplayFoodInPlate(selectedFood, "foodInPlateButton", plateContainer.transform);
             generalUI.SetChartValues(new float[3]{0, 0, 0}, macroBarChart);
             foodName.text = "-";
-            //Debug.Log("Cal: " + selectedFood.calorieCost);
 
             selectedFood = null;
             PlateNutritionalInfo();
@@ -45,13 +44,13 @@ namespace Foods.UI{
         }
 
         //PUBLIC METHODS
-        public void SelectFood(FoodTypeScriptableObject food){
-            selectedFood = food;
-            foodName.text = food.food;
-            weightSlider.value = food.weight;
-            weightValue.text = food.weight + food.measure;
+        public void SelectFood(FoodTypeScriptableObject item){
+            selectedFood = item;
+            foodName.text = item.food;
+            weightSlider.value = item.weight;
+            weightValue.text = item.weight + item.measure;
 
-            float[] macros = new float[3]{food.protein, food.fat, food.carbs};    
+            float[] macros = new float[3]{item.protein, item.fat, item.carbs};    
             GetComponent<Foods.UI.Fridge>().SetChartValues(macros, macroBarChart);
         }
 
@@ -65,6 +64,7 @@ namespace Foods.UI{
                 fats += food.fat;
             }
             float[] macros = new float[3]{proteins, fats, carbs};
+            //Debug.Log("{"+ macros[0] +"; " + macros[1] + "; " + macros[2] + "}, " + calories);
             PizzaGraph(macros, calories);
         }
 

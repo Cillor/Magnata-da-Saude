@@ -67,7 +67,9 @@ namespace Foods.UI{
             for(int i = 0; i< valueToSet.Length; i++)
                 totalAmount += valueToSet[i];
             
-            return valueToSet[index] / totalAmount;
+            float ret = valueToSet[index] / totalAmount;
+
+            return totalAmount != 0 ? ret : 0;
         }
     }
 }

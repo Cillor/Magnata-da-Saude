@@ -8,17 +8,23 @@ namespace Timer{
 
         private DateTime date = new DateTime(2022, 1, 1, 0, 0, 0);
         public DateTime Date{
-            get; set;
+            get{
+                return date;
+            } set{
+                date = value;
+            }
         }
 
         private float clockSpeed;
         public float ClockSpeed{
-            get;
+            get{
+                return clockSpeed;
+            }
         }
 
         SaveState state = SaveManager.Instance.state;
 
-        int clockIndex = 1;
+        int clockIndex = -1;
         float[] speeds = {0.25f, 0.5f, 1f, 2f, 4f, 8f, 16f};
 
 
@@ -82,12 +88,13 @@ namespace Timer{
         private void FlowTime(){
             if(timeStopped || Pause.isPaused)
                 return;
-            
+
             timeCounter += Time.deltaTime;
 
             if(timeCounter > 1/clockSpeed){
                 timeCounter = 0;
                 AddTime(1/60f);
+                GetComponent<Timer.UI.Clock>().UpdateGameClocks();
             }
         }
 

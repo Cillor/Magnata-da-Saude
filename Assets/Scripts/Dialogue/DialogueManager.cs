@@ -62,7 +62,7 @@ public class DialogueManager : MonoBehaviour {
 		DateTime dialogTime = dialog.timeSet.dateTime;
 		hoursToAdd = dialogTime.Hour - clock.Date.Hour;
 		hoursToAdd += (dialogTime.Minute/60f) - (clock.Date.Minute/60f);
-		Debug.Log(dialogTime.Hour + " - " + clock.Date.Hour + " = " + hoursToAdd);
+		//Debug.Log(dialogTime.Hour + " - " + clock.Date.Hour + " = " + hoursToAdd);
 
 		StopAllCoroutines();
 		StartCoroutine(TypeSentence(sentence));

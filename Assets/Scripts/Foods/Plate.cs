@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Foods{
     public class Plate : MonoBehaviour{
-        private List<FoodTypeScriptableObject> foodPlate;
+        private List<FoodTypeScriptableObject> foodPlate = new List<FoodTypeScriptableObject>();
         public List<FoodTypeScriptableObject> FoodPlate{
             get {return foodPlate;}
         }
