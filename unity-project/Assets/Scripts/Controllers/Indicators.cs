@@ -31,10 +31,6 @@ public class Indicators : MonoBehaviour{
     }
 
     void Update(){
-        weightText.text = "Peso: " + state.currentWeightKg.ToString("0.00") + "kg";
-        bmiText.text = "IMC: " + state.bmi.ToString("0.00");
-        restingHeartRateText.text = "FCD: " + state.restingHeartRate;
-
         while(messages.Count > 0){
             PopUpMessage(messages[0]);
             messages.RemoveAt(0);

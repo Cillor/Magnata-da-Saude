@@ -14,9 +14,8 @@ public class Exercise : MonoBehaviour{
 
 
     private void Start() {
+        state = SaveManager.Instance.state;
         energy = FindObjectOfType<Energy>();
-
-        Timer.Clock.OnDayChange += Heart;
     }
 
     public void ExerciseAction(){ //only exercises if energy allows it
@@ -56,13 +55,6 @@ public class Exercise : MonoBehaviour{
         StartCoroutine(FindObjectOfType<ImageFade>().FadeImage());
 
         //?Debug.Log("Exercised for " + hoursExercising + " and spent " + calorieExpenditure + "kcal");
-    }
-
-    void Heart(){
-        System.Random rnd = new System.Random();
-
-        int goalHeartRate = 131 - 41 * (int)SaveManager.Instance.state.activityFactor;
-        SaveManager.Instance.state.restingHeartRate = rnd.Next(goalHeartRate - 2, goalHeartRate + 3);
     }
 
 }
