@@ -39,7 +39,7 @@ namespace Foods{
             FindObjectOfType<Energy>().ChangeEnergy(-1 * processingAverage/10f);
             SaveManager.Instance.state.sleepQuality -= processingAverage/10f;
 
-            FindObjectOfType<BloodGlucose>().AddCarbsToBloodStream(4); 
+            FindObjectOfType<Body.BloodGlucose>().AddCarbsToBloodStream(4); 
         }
     }
 }

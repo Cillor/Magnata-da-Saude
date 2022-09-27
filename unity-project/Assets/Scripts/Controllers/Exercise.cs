@@ -46,7 +46,7 @@ public class Exercise : MonoBehaviour{
         energy.ChangeEnergy(energyDecreseValue);
 
         float bgpChange = -1 * Mathf.Lerp(0, 0.75f * (calorieExpenditure * state.ptc), 1-state.diabetesSeverity);
-        FindObjectOfType<BloodGlucose>().Change(bgpChange); 
+        FindObjectOfType<Body.BloodGlucose>().Change(bgpChange); 
 
         int hoursHE = Mathf.FloorToInt(hoursExercising);
         int minutesHE = Mathf.RoundToInt((hoursExercising - hoursHE) * 60);
