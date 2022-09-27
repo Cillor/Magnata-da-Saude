@@ -903,13 +903,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 217245810}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d7e21a932602b346bd16732ad6c01df, type: 3}
+  m_Script: {fileID: 11500000, guid: f4ed47aaa1507d84392f72f1bb8c4d6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   activityText: {fileID: 1673338836}
   weightText: {fileID: 1540711096}
-  sleepText: {fileID: 781735418}
-  height: {fileID: 1180892471}
+  sleepText: {fileID: 1180892471}
+  heightText: {fileID: 25131603}
   age: {fileID: 1172363413}
   manPB: {fileID: 764844255}
   manColor: {fileID: 486396718}
@@ -2701,7 +2701,7 @@ GameObject:
   - component: {fileID: 1180892472}
   - component: {fileID: 1180892471}
   m_Layer: 5
-  m_Name: value
+  m_Name: heightText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
