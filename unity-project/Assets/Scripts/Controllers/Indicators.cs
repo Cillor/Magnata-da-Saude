@@ -18,7 +18,7 @@ public class Indicators : MonoBehaviour{
 
     SaveState state;
 
-    public TMP_Text weightText, bmiText, restingHeartRateText, glycatedHemoglobinText, caloriesText;
+    public TMP_Text weightText, bmiText, restingHeartRateText, caloriesText;
 
     [Space]
     public GameObject popupHolder;
@@ -31,11 +31,6 @@ public class Indicators : MonoBehaviour{
     }
 
     void Update(){
-        weightText.text = "Peso: " + state.currentWeightKg.ToString("0.00") + "kg";
-        bmiText.text = "IMC: " + state.bmi.ToString("0.00");
-        restingHeartRateText.text = "FCD: " + state.restingHeartRate;
-        glycatedHemoglobinText.text = "GS: " + state.bgp + "mg/dL";
-
         while(messages.Count > 0){
             PopUpMessage(messages[0]);
             messages.RemoveAt(0);
