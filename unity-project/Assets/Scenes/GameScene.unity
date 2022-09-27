@@ -7787,6 +7787,8 @@ GameObject:
   - component: {fileID: 881363947}
   - component: {fileID: 881363952}
   - component: {fileID: 881363951}
+  - component: {fileID: 881363954}
+  - component: {fileID: 881363953}
   m_Layer: 0
   m_Name: BodyController
   m_TagString: Untagged
@@ -7872,6 +7874,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weightText: {fileID: 796537712}
   bmiText: {fileID: 228638086}
+--- !u!114 &881363953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 881363946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6391f99d06e71734e90f0869ba5dd3a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &881363954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 881363946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0029d2a762a414145941fbed7a1d0a03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  restingHeartRateText: {fileID: 1085737332}
 --- !u!1 &910606087
 GameObject:
   m_ObjectHideFlags: 0
