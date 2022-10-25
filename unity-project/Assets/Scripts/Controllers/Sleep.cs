@@ -23,6 +23,11 @@ public class Sleep : MonoBehaviour{
         Timer.Clock.OnHourChange += HourlyUpdate;
     }
 
+    private void Update() {
+        DateTime date = clock.Date.AddHours(amountOfSleepWantedInHours); 
+        wakeUpHourAndMinuteText.text = date.ToString("HH:mm");
+    }
+
     void NewDay(){
         state.numberOfSleeps++;
     }
@@ -35,8 +40,6 @@ public class Sleep : MonoBehaviour{
         amountOfSleepWantedInHours = value;
         TimeSpan time = TimeSpan.FromHours(amountOfSleepWantedInHours);
         amountOfHoursToSleepText.text = time.ToString("hh'hrs'mm'min'");
-        DateTime date = clock.Date.AddHours(amountOfSleepWantedInHours);
-        wakeUpHourAndMinuteText.text = date.ToString("HH:mm");
     }
 
     public void SleepAction(){
@@ -56,10 +59,6 @@ public class Sleep : MonoBehaviour{
         //calculates sleep quality
         float sleepAverage = state.totalHoursSlept/state.numberOfSleeps;
         state.sleepQuality += (-Mathf.Pow(0.5f * (sleepAverage - 8), 2) + 1)/100f;
-
-        //calculates when the player will wake up the next time the sleep screen opens
-        DateTime date = clock.Date.AddHours(amountOfSleepWantedInHours); 
-        wakeUpHourAndMinuteText.text = date.ToString("HH:mm");
 
         //refills player energy based on when you slept
         float thisSleepQuality = (Mathf.Cos(0.27f * (sleepStartHour - 22)) + 1)/2f;
