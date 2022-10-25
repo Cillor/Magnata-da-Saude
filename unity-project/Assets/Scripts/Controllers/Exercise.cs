@@ -38,6 +38,7 @@ public class Exercise : MonoBehaviour{
         state.currentDayExerciseQuantity += 1;
         int calorieExpenditure = Mathf.RoundToInt(rnd.Next(360,505) * state.sleepQuality);
         state.calorieDifference -= calorieExpenditure;
+        FindObjectOfType<Foods.UI.Fridge>().DailyNutritionalInfo();
 
         float energyDecreseValue = UnityEngine.Random.Range(-0.0003f, -0.0007f);
         energyDecreseValue *= calorieExpenditure;
