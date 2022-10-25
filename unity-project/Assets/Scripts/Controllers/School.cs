@@ -32,8 +32,11 @@ public class School : MonoBehaviour{
 
     public void GoToSchool(){
         Timer.Clock.timeStopped = false;
-        clock.AddTime(5);
+        Debug.Log("THIS BAD BOY RUNS");
+        clock.SetHours(18);
+        Debug.Log("AND HE UPDATES THE TIME");
         clockUI.UpdateGameClocks();
+        Debug.Log("AND HE UPDATES THE FREAKING CLOCK!!");
 
         float energyDecreaseValue = UnityEngine.Random.Range(-0.2f, -0.05f);
         energy.ChangeEnergy(energyDecreaseValue);
