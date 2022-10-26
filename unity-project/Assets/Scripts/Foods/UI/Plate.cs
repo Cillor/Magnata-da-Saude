@@ -55,8 +55,7 @@ namespace Foods.UI{
         }
 
         public void PlateNutritionalInfo(){
-            int calories = 0;
-            float carbs = 0, proteins = 0, fats = 0;
+            float calories = 0, carbs = 0, proteins = 0, fats = 0;
             foreach(FoodTypeScriptableObject food in GetComponent<Foods.Plate>().FoodPlate){
                 calories += food.calorieCost;
                 carbs += food.carbs;
@@ -102,7 +101,7 @@ namespace Foods.UI{
             selectedFood.weight = (int)weight;
         }
 
-        void PizzaGraph(float[] macros, int calories){
+        void PizzaGraph(float[] macros, float calories){
             Foods.UI.Fridge generalUI = GetComponent<Foods.UI.Fridge>();
             generalUI.SetChartValues(macros, macroPizzaChart);
             totalCalories.text = calories + "kcal";

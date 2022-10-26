@@ -26,13 +26,14 @@ namespace Foods{
             FoodTypeScriptableObject _f = new FoodTypeScriptableObject();
                 //get raw data
                 _f.food = data[0];
-                _f.weight = int.Parse(data[1]);
+                _f.weight = int.Parse(data[1], CultureInfo.InvariantCulture);
                 _f.measure = data[2];
-                int cals = int.Parse(data[3]);
-                int carbs = int.Parse(data[4]);
-                int fats = int.Parse(data[5]);
-                int proteins = int.Parse(data[6]);
-                _f.consumingTime = int.Parse(data[7]);
+                float cals = float.Parse(data[3], CultureInfo.InvariantCulture);
+                float carbs = float.Parse(data[4], CultureInfo.InvariantCulture);
+                Debug.Log(data[5]);
+                float fats = float.Parse(data[5], CultureInfo.InvariantCulture);
+                float proteins = float.Parse(data[6], CultureInfo.InvariantCulture);
+                _f.consumingTime = int.Parse(data[7], CultureInfo.InvariantCulture);
                 _f.processingLevel = float.Parse(data[8], CultureInfo.InvariantCulture);
 
                 //data processing
