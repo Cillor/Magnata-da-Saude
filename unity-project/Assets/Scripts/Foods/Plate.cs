@@ -16,8 +16,7 @@ namespace Foods{
         }
 
         public void EatPlate(){
-            int calories = 0;
-            float carbs = 0, protein = 0, fat = 0, processingAverage = 0;
+            float calories = 0, carbs = 0, protein = 0, fat = 0, processingAverage = 0;
 
             foreach(FoodTypeScriptableObject item in foodPlate){
                 calories += item.calorieCost;

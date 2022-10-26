@@ -52,7 +52,7 @@ namespace Body{
 
             state.basalCalorie = Mathf.RoundToInt(state.activityFactor * (10f * state.currentWeightKg + 
             6.25f * state.heightCentimeters - 5f * state.ageYears + state.sexFactor));
-            state.dailyCalorieRealDefficit = state.calorieDifference - state.basalCalorie;
+            state.dailyCalorieRealDefficit = (int)state.calorieDifference - state.basalCalorie;
         }
 
     }
