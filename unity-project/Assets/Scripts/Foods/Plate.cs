@@ -16,17 +16,16 @@ namespace Foods{
         }
 
         public void EatPlate(){
-            float calories = 0, carbs = 0, protein = 0, fat = 0, processingAverage = 0;
+            float calories = 0, carbs = 0, protein = 0, fat = 0, fiberCount = 0;
 
             foreach(FoodTypeScriptableObject item in foodPlate){
                 calories += item.calorieCost;
                 carbs += item.carbs;
                 protein += item.protein;
                 fat += item.fat;
-                processingAverage += item.processingLevel;
+                fiberCount += item.processingLevel;
             }
             //Debug.Log(calories);
-            processingAverage /= foodPlate.Count;
             GetComponent<Foods.UI.Plate>().RemoveFood();
 
             SaveManager.Instance.state.calorieDifference += calories;
@@ -35,8 +34,8 @@ namespace Foods{
             SaveManager.Instance.state.fat += fat;
             GetComponent<Foods.UI.Fridge>().DailyNutritionalInfo();
 
-            FindObjectOfType<Energy>().ChangeEnergy(-1 * processingAverage/10f);
-            SaveManager.Instance.state.sleepQuality -= processingAverage/10f;
+            FindObjectOfType<Energy>().ChangeEnergy(-1 * (calories/100f)/fiberCount);
+            SaveManager.Instance.state.sleepQuality -= (calories/100f)/fiberCount;
 
             FindObjectOfType<Body.BloodGlucose>().AddCarbsToBloodStream(4); 
         }

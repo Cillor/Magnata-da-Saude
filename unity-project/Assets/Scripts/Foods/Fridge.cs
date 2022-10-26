@@ -23,7 +23,7 @@ namespace Foods{
             for(int i = 1; i < lines.Length - 1; i++) {
             var data = lines[i].Split(';');
 
-            FoodTypeScriptableObject _f = new FoodTypeScriptableObject();
+            FoodTypeScriptableObject _f = ScriptableObject.CreateInstance<FoodTypeScriptableObject>();
                 //get raw data
                 _f.food = data[0];
                 _f.weight = int.Parse(data[1], CultureInfo.InvariantCulture);

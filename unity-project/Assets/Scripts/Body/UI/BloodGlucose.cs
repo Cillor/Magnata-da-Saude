@@ -9,6 +9,7 @@ namespace Body.UI{
 
         private void Start() {
             state = SaveManager.Instance.state;
+            Debug.Log(state);
         }
 
         public void UpdateUI(){
