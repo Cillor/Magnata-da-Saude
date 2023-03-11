@@ -2056,7 +2056,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 375, y: 56}
+  m_SizeDelta: {x: 0, y: 56}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &228638086
 MonoBehaviour:
@@ -2456,9 +2456,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Water, Assembly-CSharp
-        m_MethodName: Hydrate
+      - m_Target: {fileID: 881363949}
+        m_TargetAssemblyTypeName: Body.Water, Assembly-CSharp
+        m_MethodName: ChangeWater
         m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3315,8 +3315,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 187.5, y: 150}
-  m_SizeDelta: {x: 375, y: 300}
+  m_AnchoredPosition: {x: 225, y: 150}
+  m_SizeDelta: {x: 450, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &381225964
 MonoBehaviour:
@@ -3331,15 +3331,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 15
+    m_Left: 5
     m_Right: -5
     m_Top: 10
     m_Bottom: 10
-  m_ChildAlignment: 4
+  m_ChildAlignment: 3
   m_Spacing: 2
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
-  m_ChildControlWidth: 0
+  m_ChildControlWidth: 1
   m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
@@ -7063,7 +7063,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 375, y: 56}
+  m_SizeDelta: {x: 0, y: 56}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &796537712
 MonoBehaviour:
@@ -9273,7 +9273,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 375, y: 56}
+  m_SizeDelta: {x: 0, y: 56}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1085737332
 MonoBehaviour:
@@ -11431,7 +11431,7 @@ MonoBehaviour:
       de energia e at\xE9 sua hidrata\xE7\xE3o."
     interactable: {fileID: 54065774}
     timeSet:
-      _dateTime: 01/01/2022 08:00:00
+      _dateTime: 1/1/2022 8:00:00 AM
   - sentence: "Abra a geladeira, monte seu prato e tome um caf\xE9 da manh\xE3 refor\xE7ado
       para aguentar o dia.\nLembre-se que sua escolha de alimentos \xE9 extremamente
       importante, quando sua glicose est\xE1 alta \xE9 importante escolher alimentos
@@ -11439,23 +11439,23 @@ MonoBehaviour:
       por comer alimentos com menos carboidratos."
     interactable: {fileID: 640890981}
     timeSet:
-      _dateTime: 01/01/2022 09:00:00
+      _dateTime: 1/1/2022 9:00:00 AM
   - sentence: Estude no seu computador para melhorar suas notas e passar seu o tempo.
     interactable: {fileID: 569652362}
     timeSet:
-      _dateTime: 01/01/2022 11:00:00
+      _dateTime: 1/1/2022 11:00:00 AM
   - sentence: "Outro fator importante para sua sa\xFAde \xE9 se manter hidratado.
       Beba \xE1gua regularmente."
     interactable: {fileID: 234737592}
     timeSet:
-      _dateTime: 01/01/2022 11:00:00
+      _dateTime: 1/1/2022 11:00:00 AM
   - sentence: "Abra a geladeira e escolha seu almo\xE7o.\nExplore suas op\xE7\xF5es
       de alimentos e busque montar uma refei\xE7\xE3o que balanceia bem sua quantidade
       de macronutrientes (carboidratos, prote\xEDnas e gorduras). Lembrando sempre
       que saladas s\xE3o extremamente importantes na dieta de uma pessoa."
     interactable: {fileID: 640890981}
     timeSet:
-      _dateTime: 01/01/2022 12:30:00
+      _dateTime: 1/1/2022 12:30:00 PM
   - sentence: "V\xE1 para a escola assim que o rel\xF3gio der 13:00.\nUsando os controles
       de tempo no canto superior direito voc\xEA pode alterar a velocidade de passagem
       do tempo, al\xE9m de parar o fluxo temporal totalmente.\nVoc\xEA \xE9 for\xE7ado
@@ -11463,14 +11463,14 @@ MonoBehaviour:
       a\xE7\xE3o que for ser finalizada depois das 13:00 n\xE3o poder\xE1 ocorrer."
     interactable: {fileID: 704482757}
     timeSet:
-      _dateTime: 01/01/2022 18:00:00
+      _dateTime: 1/1/2022 6:00:00 PM
   - sentence: "Voltando da escola \xE9 um bom hor\xE1rio para se jantar. Abra a geladeira,
       monte seu prato e coma.\nE se lembre o qu\xE3o importante \xE9 n\xE3o exceder
       um limite calorico di\xE1rio, consumir mais calorias do que seu corpo gasta
       leva a ganho de gordura."
     interactable: {fileID: 640890981}
     timeSet:
-      _dateTime: 01/01/2022 19:00:00
+      _dateTime: 1/1/2022 7:00:00 PM
   - sentence: "Esse \xE9 um hor\xE1rio excelente para se exercitar na academia e
       aliviar um pouco do estresse do dia.\nO exerc\xEDcio \xE9 um fator essencial
       para manter sua sa\xFAde em dia, algu\xE9m que se exercita tem mais energia,
@@ -11478,12 +11478,12 @@ MonoBehaviour:
       controle sobre sua glicose."
     interactable: {fileID: 2007173972}
     timeSet:
-      _dateTime: 01/01/2022 21:30:00
+      _dateTime: 1/1/2022 9:30:00 PM
   - sentence: "Ap\xF3s um dia t\xE3o longo \xE9 sempre bom dormir e recuperar as
       energias para um pr\xF3ximo dia."
     interactable: {fileID: 54065774}
     timeSet:
-      _dateTime: 02/01/2022 07:00:00
+      _dateTime: 2/1/2022 7:00:00 AM
 --- !u!1 &1439176073
 GameObject:
   m_ObjectHideFlags: 0
@@ -14439,7 +14439,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 375, y: 56}
+  m_SizeDelta: {x: 0, y: 56}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2047156592
 MonoBehaviour:
@@ -14461,7 +14461,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'A1c: 6,1%'
+  m_text: 'Glicemia: 147.6mg/dL'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 910536ca3a4774d4c94d3a11cbd474fb, type: 2}
   m_sharedMaterial: {fileID: 4555076882382298910, guid: 910536ca3a4774d4c94d3a11cbd474fb, type: 2}
@@ -14524,7 +14524,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -0.6035919, y: 0, z: 0.000000014661498, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

@@ -42,7 +42,7 @@ namespace Foods.UI{
             name.text = food.food;
             SetChartValues(macros, chart);
             //wholeness.fillAmount = food.processingLevel;
-            calorieCost.text = food.calorieCost.ToString();
+            calorieCost.text = food.calorieCost.ToString("F1");
 
             food.go = newFoodType;
         }

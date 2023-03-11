@@ -23,7 +23,7 @@ public class SaveState{
 
     public float hydration = 0.5f;
 
-    public int[] date = new int[6]{2022, 1, 1, 0, 1, 0};
+    public int[] date = new int[6]{2021, 12, 31, 23, 59, 0};
     public int[] exerciseHistory = new int[7]{0, 0, 0, 0, 0, 0, 0};
 
 

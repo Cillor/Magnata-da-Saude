@@ -9,10 +9,12 @@ namespace Body.UI{
 
         private void Start() {
             state = SaveManager.Instance.state;
+            UpdateUI();
         }
 
         public void UpdateUI(){
-            bgpText.text = "Glicemia: " + state.bgp + "mg/dL";
+            Debug.Log(state.bgp);
+            bgpText.text = "Glicemia: " + state.bgp.ToString("F1") + "mg/dL";
         }
     }
 

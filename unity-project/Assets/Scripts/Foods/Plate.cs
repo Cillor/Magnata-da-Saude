@@ -9,24 +9,36 @@ namespace Foods{
         }
 
         public void AddToPlate(FoodTypeScriptableObject food){
-            foodPlate.Add(food);
+            if(foodPlate.Contains(food)){
+                int i = foodPlate.FindIndex(p => p.food == food.food);
+                foodPlate[i].weight += food.weight;
+
+                foodPlate[i].calorieCost += food.calorieCost;
+                foodPlate[i].carbs += food.carbs;
+                foodPlate[i].fat += food.fat;
+                foodPlate[i].protein += food.protein;
+            }else{
+                foodPlate.Add(food);
+            }
         }
+
         public void RemoveFromPlate(FoodTypeScriptableObject food){
             foodPlate.Remove(food);
         }
 
         public void EatPlate(){
-            float calories = 0, carbs = 0, protein = 0, fat = 0, processingAverage = 0;
+            float calories = 0, carbs = 0, protein = 0, fat = 0, fibers = 0, water = 0, time = 0;
 
             foreach(FoodTypeScriptableObject item in foodPlate){
                 calories += item.calorieCost;
                 carbs += item.carbs;
                 protein += item.protein;
                 fat += item.fat;
-                processingAverage += item.processingLevel;
+                fibers += item.fibers;
+                water += item.water;
+                time += item.consumingTime;
             }
             //Debug.Log(calories);
-            processingAverage /= foodPlate.Count;
             GetComponent<Foods.UI.Plate>().RemoveFood();
 
             SaveManager.Instance.state.calorieDifference += calories;
@@ -35,10 +47,13 @@ namespace Foods{
             SaveManager.Instance.state.fat += fat;
             GetComponent<Foods.UI.Fridge>().DailyNutritionalInfo();
 
-            FindObjectOfType<Energy>().ChangeEnergy(-1 * processingAverage/10f);
-            SaveManager.Instance.state.sleepQuality -= processingAverage/10f;
+            FindObjectOfType<Energy>().ChangeEnergy((fibers + (water/1000))/100);
+            //!there should be a way in here that the type of food you each impacts your sleep
+            //!SaveManager.Instance.state.sleepQuality -= ;
 
-            FindObjectOfType<Body.BloodGlucose>().AddCarbsToBloodStream(4); 
+            FindObjectOfType<Body.BloodGlucose>().AddCarbsToBloodStream(carbs); 
+
+            FindObjectOfType<Timer.Clock>().AddTime(time/60f);
         }
     }
 }

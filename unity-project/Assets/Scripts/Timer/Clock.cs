@@ -6,7 +6,7 @@ namespace Timer{
     public class Clock : MonoBehaviour{
         public static bool timeStopped = false;
 
-        private DateTime date = new DateTime(2022, 1, 1, 0, 0, 0);
+        private DateTime date = new DateTime(2021, 12, 31, 23, 59, 0);
         public DateTime Date{
             get{
                 return date;

@@ -28,12 +28,26 @@ namespace Foods.UI{
                 return;
 
             ChangeCurrentFoodQuantity(weightSlider.value);
+
+            //at this point i should check if the food can be added
             GetComponent<Foods.Plate>().AddToPlate(selectedFood);
 
             Foods.UI.Fridge generalUI = GetComponent<Foods.UI.Fridge>();
-            DisplayFoodInPlate(selectedFood, "foodInPlateButton", plateContainer.transform);
             generalUI.SetChartValues(new float[3]{0, 0, 0}, macroBarChart);
             foodName.text = "-";
+
+            Transform plateTransform = plateContainer.transform;
+            // Loop through all the children of the plate container game object
+            for (int i = plateTransform.childCount - 1; i >= 0; i--){
+                // Get a reference to the current child transform
+                Transform childTransform = plateTransform.GetChild(i);
+                // Destroy the child game object
+                GameObject.Destroy(childTransform.gameObject);
+            }
+
+            foreach (FoodTypeScriptableObject item in GetComponent<Foods.Plate>().FoodPlate){
+                DisplayFoodInPlate(item, "foodInPlateButton", plateContainer.transform);
+            }
 
             selectedFood = null;
             PlateNutritionalInfo();

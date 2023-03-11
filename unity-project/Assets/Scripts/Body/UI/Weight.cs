@@ -8,11 +8,12 @@ namespace Body.UI{
 
         private void Start() {
             state = SaveManager.Instance.state;
+            UpdateUI();
         }
 
         public void UpdateUI(){
-            weightText.text = "Peso: " + state.currentWeightKg.ToString("0.00") + "kg";
-            bmiText.text = "IMC: " + state.bmi.ToString("0.00");
+            weightText.text = "Peso: " + state.currentWeightKg.ToString("F1") + "kg";
+            bmiText.text = "IMC: " + state.bmi.ToString("F2");
         }
     }
 }

@@ -21,20 +21,21 @@ namespace Foods{
             string[] lines = dataset.text.Split('\n');
 
             for(int i = 1; i < lines.Length - 1; i++) {
-            var data = lines[i].Split(';');
+                var data = lines[i].Split(';');
 
-            FoodTypeScriptableObject _f = new FoodTypeScriptableObject();
+                FoodTypeScriptableObject _f = new FoodTypeScriptableObject();
+                
                 //get raw data
                 _f.food = data[0];
-                _f.weight = int.Parse(data[1], CultureInfo.InvariantCulture);
+                _f.weight = float.Parse(data[1], CultureInfo.InvariantCulture);
                 _f.measure = data[2];
                 float cals = float.Parse(data[3], CultureInfo.InvariantCulture);
                 float carbs = float.Parse(data[4], CultureInfo.InvariantCulture);
-                Debug.Log(data[5]);
                 float fats = float.Parse(data[5], CultureInfo.InvariantCulture);
                 float proteins = float.Parse(data[6], CultureInfo.InvariantCulture);
-                _f.consumingTime = int.Parse(data[7], CultureInfo.InvariantCulture);
-                _f.processingLevel = float.Parse(data[8], CultureInfo.InvariantCulture);
+                _f.consumingTime = float.Parse(data[7], CultureInfo.InvariantCulture);
+                _f.fibers = float.Parse(data[8], CultureInfo.InvariantCulture);
+                _f.water = float.Parse(data[9], CultureInfo.InvariantCulture);
 
                 //data processing
                 _f.calorieCost = (100 * cals)/_f.weight;
